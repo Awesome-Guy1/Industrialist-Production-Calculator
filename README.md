@@ -1,178 +1,144 @@
-# Industrialist Production Calculator
+# Industrialist Calculator
 
-Visual production planning tool for the Industrialist game. Build flowcharts, calculate machine counts, and optimize factory layouts. Live app here:
-https://pollywrath.github.io/Industrialist-Production-Calculator/
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![React: 19](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev)
+[![Vite: 8](https://img.shields.io/badge/Vite-8-6474f2.svg)](https://vite.dev)
+[![TypeScript: 6](https://img.shields.io/badge/TypeScript-6-blue.svg)](https://www.typescriptlang.org)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-## Notice
+An interactive, flowchart-based calculator and factory solver for the Roblox game **Industrialist**. This tool helps players design layouts, calculate production rates, and manage recipe databases.
 
-This site is no longer being updated. A new version of the calculator is available at:
-https://industrialist-calculator.pages.dev/
+**Live Application:** [industrialist-calculator.pages.dev](https://industrialist-calculator.pages.dev/)
 
-## Features
-
-- **Visual Planning**: Drag-and-drop recipe nodes with auto-balancing
-- **LP Solver**: Set targets and compute optimal machine counts with lock/cap constraints
-- **Machine Count Control**: Lock nodes to prevent changes or cap them to limit LP solver/suggestions
-- **Special Recipes**: Mineshaft Drill, Logic Assembler, Tree Farm, Industrial Firebox, Chemical Plant, Underground Waste Facility, Liquid Dump/Burner
-- **Temperature System**: Heat sources, boilers, and temperature-dependent cycles
-- **Analysis**: Real-time excess/deficiency detection, flow visualization, pollution tracking
-- **Customization**: Theme editor, custom data import/export, favorite recipes
-- **Persistent Storage**: Auto-save to browser
-
-## Installation
-
-**Requirements**: Node.js v16+, npm or yarn
-
-```bash
-git clone https://github.com/Pollywrath/Industrialist-Production-Calculator.git
-cd Industrialist-Production-Calculator
-npm install
-npm run dev
-```
-
-App runs at `http://localhost:5173`
-
-**Build**: `npm run build`  
-**Preview**: `npm run preview`
-
-## Controls
-
-### Basic
-- **Add Recipe**: Click "+ Select Recipe"
-- **Pan**: Left-drag on canvas
-- **Zoom**: Mouse wheel
-- **Connect**: Drag from output (red, right) to input (green, left)
-
-### Node Actions
-- **Edit Count**: Double-click node
-- **Lock/Cap Count**: Click 🔒/📊 icon on node to cycle modes (Free → Capped → Locked → Free)
-- **Auto-Balance**: Double-click handle (respects locks/caps)
-- **Set Target**: Shift+Click node
-- **Delete**: Ctrl+Alt+Click node
-- **Duplicate**: Middle-click node, left-click to place
-- **Configure**: Click ⚙️ on special recipes
-
-### Machine Count Modes
-- **🔓 Free**: LP solver and suggestions can modify count freely
-- **📊 Capped**: LP solver and suggestions cannot exceed the cap value (cap is set when Apply is pressed)
-- **🔒 Locked**: LP solver and suggestions cannot change count at all
-- **Note**: You can always manually edit counts regardless of mode
-
-### Connection Actions
-- **Delete**: Ctrl+Click input/output rectangle
-- **Auto-Connect**: Click input/output rectangle
-
-### Display
-- **Per Second/Cycle**: Toggle in extended panel
-- **Total/Per Machine**: Toggle in extended panel
-- **Pause Pollution**: ▶/❚❚ button
-
-### Canvas
-- **Clear All**: Remove all nodes
-- **View Targets**: Manage production targets
-- **Compute Machines**: Calculate optimal counts (respects locks/caps)
-
-## Data Management
-
-### Import/Export
-- **Import JSON**: Products, machines, recipes, or full canvas
-- **Export Data**: Products, machines, recipes only
-- **Export Canvas**: Layout and configuration
-- **Export JSON**: Everything
-
-### Restore Defaults
-Resets all data to original game values. **Warning**: Clears canvas and custom data except for themes.
-
-## Project Structure
-```
-public/                  # Static assets (Apache 2.0 — see License)
-├── scip.js
-├── scip.js.mem
-├── scip.wasm
-└── scip.wasm.js
-src/
-├── components/          # React components
-│   ├── ComputeModal.jsx
-│   ├── CustomNode.jsx
-│   ├── CustomEdge.jsx
-│   ├── UnifiedSettings.jsx
-│   ├── settingsConfig.jsx
-│   ├── ThemeEditor.jsx
-│   ├── HelpModal.jsx
-│   ├── SaveManager.jsx
-│   ├── DataManager.jsx
-│   └── RecipeEditor.jsx
-├── data/                # Game data (CC BY-NC-SA 4.0)
-│   ├── products.json
-│   ├── machines.json
-│   ├── recipes.json
-│   ├── dataLoader.js
-│   ├── mineshaftDrill.js
-│   ├── logicAssembler.js
-│   ├── treeFarm.js
-│   ├── industrialFirebox.js
-│   ├── chemicalPlant.js
-│   ├── undergroundWasteFacility.js
-│   ├── liquidDump.js
-│   └── liquidBurner.js
-├── utils/               # Utilities (MIT)
-│   ├── variableHandler.js
-│   ├── temperatureUtils.js
-│   ├── appUtilities.js
-│   ├── recipeBoxCreation.js
-│   ├── machineCountPropagator.js
-│   ├── dataUtilities.js
-│   ├── autoLayout.js
-│   └── saveDB.js
-├── solvers/             # Production analysis (MIT)
-│   ├── productionSolver.js
-│   ├── graphBuilder.js
-│   ├── flowCalculator.js
-│   ├── excessCalculator.js
-│   ├── suggestionCalculator.js
-│   ├── lpSolver.js
-│   └── lpWorker.js
-├── App.jsx
-├── index.css
-└── main.jsx
-```
-
-## License
-
-**Dual License**:
-
-### MIT License (Code)
-All source code, React components, JavaScript logic, CSS, and utilities are MIT licensed.
-
-### CC BY-NC-SA 4.0 (Game Data)
-Game data from [Industrialist Wiki](https://industrialist.miraheze.org/):
-- `src/data/*.json` (products, machines, recipes)
-- Game constants in:
-  - `src/data/mineshaftDrill.js` (drill mechanics, deterioration rates, depth outputs)
-  - `src/data/logicAssembler.js` (microchip stages, assembly mechanics)
-  - `src/data/treeFarm.js` (growth times, harvest mechanics)
-  - `src/data/industrialFirebox.js` (fuel types, energy values)
-  - `src/data/chemicalPlant.js` (speed/efficiency calculations)
-  - `src/data/undergroundWasteFacility.js` (storage, consumption rates)
-  - `src/data/liquidDump.js` (pollution rates)
-  - `src/data/liquidBurner.js` (pollution rates)
-  - `src/utils/temperatureUtils.js` (heat source definitions, temperature calculations, temperature-dependent cycle formulas)
-
-**Summary**: Code is freely usable (including commercial). Game data is non-commercial only with attribution.
-
-## Credits
-
-- **Game Data**: [Industrialist Wiki](https://industrialist.miraheze.org/)
-- **Development**: Pollywrath
-- **Built With**: React, ReactFlow, Vite
-- **LP/MIP Solver**: [SCIP Optimization Suite](https://www.scipopt.org/) (Apache 2.0) — compiled to WebAssembly by [Jacob Strieb](https://github.com/jstrieb/poker-chipper)
-
-## Support
-
-- **Issues**: [GitHub Issues](https://github.com/Pollywrath/Industrialist-Production-Calculator/issues)
-- **Source**: [GitHub Repository](https://github.com/Pollywrath/Industrialist-Production-Calculator)
-- **Wiki**: [Industrialist Wiki](https://industrialist.miraheze.org/)
+Created and maintained by [Pollywrath](https://github.com/pollywrath).
 
 ---
 
-**Note**: Fan-made tool, not officially affiliated with Industrialist.
+## Features
+
+*   **Node Graph Canvas:** Built on `@xyflow/react` (React Flow) supporting interactive machine nodes, input/output nodes, group containers, and custom edge lines.
+*   **Flow Solver Pipeline:** A deterministic graph solver that computes product rate allocation, handles complex splits and merges, and calculates deficiency/excess rates at each node port.
+*   **Temperature Propagation:** Simulates heat transport along connected edges using flow-weighted averages, utilizing an iterative loop (up to 80 passes) to resolve recirculating systems.
+*   **Systemic Rate Balancer:** A rate optimizer that runs a Golden-Section Search (GSS) algorithm (40 iterations, $1e-8$ precision threshold) on isolated sub-graphs to balance rate outputs.
+*   **Linear Programming (LP) Solver:** Provides an LP interface to solve resource optimization problems using the SCIP Optimization Suite compiled to WebAssembly.
+*   **Custom Data Manager:** View and override recipes, machines, and product items. Custom database configurations are validated and bundled inside save files.
+*   **Persistence & Autosave:** Uses a dual-path persistence strategy combining a 5-second background interval with a `beforeunload` event handler. Startup restoration is gated to avoid async state issues in React Strict Mode.
+*   **Theme Editor & Clean Styling:** A flat, technical blueprint-style interface styled via CSS Modules and unified CSS custom properties (variables), allowing theme switching without inline style contamination.
+
+---
+
+## Architectural Guidelines
+
+To maintain code hygiene, this codebase adheres to strict design contracts:
+
+*   **React Compiler:** This project uses the React Compiler. **Do not** manually add `useMemo`, `useCallback`, or `React.memo` to components, as they are automatically optimized.
+*   **Zustand State:** Global state is split into isolated stores (e.g., `useFlowStore` for nodes/edges, `useFlowResultStore` for solver outputs). Do not subscribe high-frequency interactive canvas components directly to global arrays; use selective selectors.
+*   **Styling Architecture:** All styling is completely flat, instant, and technical. There are no glows, shadows, gradients, or animations (except loading spinners, save buttons, and material flow dashed edges). Hex, HSL, or RGB colors are strictly prohibited in TSX files and component CSS files; all styling must reference variables defined in [src/index.css](file:///c:/Users/William/Documents/Web%20Apps/industrialist-calculator/src/index.css).
+*   **Data Decoupling:** The persistence layer ([src/persistence/](file:///c:/Users/William/Documents/Web%20Apps/industrialist-calculator/src/persistence/)) does not know about recipe formulas or schemas. Save files act as unopinionated data carriers.
+*   **TypeScript and Linting:** Strict module compilation is enforced with `verbatimModuleSyntax: true` (explicit `import type` must be used). ESLint warnings/errors must be resolved structurally—do not use `eslint-disable` comments.
+
+---
+
+## Repository Structure
+
+```
+├── functions/               # Serverless API functions
+│   └── api/
+│       └── wiki-bucket.js   # API endpoint for wiki comparison data
+├── public/                  # Static assets
+│   ├── icons/               # Sprites and graphical icons (CC BY-NC-SA 4.0)
+│   ├── scip/                # WebAssembly compiled SCIP Solver (Apache 2.0)
+│   │   ├── scip.js          # JS loader wrapper for WebAssembly SCIP
+│   │   ├── scip.wasm        # WebAssembly binary of the SCIP solver
+│   │   └── scip.wasm.js     # SCIP Emscripten build glue code
+│   └── induslogo.webp       # Application logo
+├── src/
+│   ├── components/          # React components
+│   │   ├── canvas/          # Custom node elements, custom edges, and the canvas grid
+│   │   ├── menu/            # Canvas menu controls and buttons
+│   │   ├── overlays/        # Help, Saves, Themes, Data, and LP Solver panels
+│   │   ├── shared/          # Generic UI components (inputs, virtual lists, dialogs)
+│   │   └── tutorial/        # Tutorial controller overlays and steps
+│   ├── data/                # Hardcoded static recipes, machines, products, and registry
+│   ├── hooks/               # Core React hooks and flow solver execution wrapper
+│   ├── persistence/         # Autosave execution, JSON serialization, and IndexedDB adapters
+│   ├── services/            # Wiki comparison client and canvas image exporting utilities
+│   ├── solver/              # Pipeline orchestrator, graph builders, flow solvers, and temperature models
+│   ├── stores/              # Zustand global stores (flow, results, saves, themes)
+│   ├── theme/               # Color presets and runtime theme manager
+│   ├── tutorials/           # Saved JSON layouts and steps for interactive tutorials
+│   ├── types/               # TypeScript interface definitions and schema validation models
+│   ├── utils/               # Math utilities, machine taxonomies, and ID generators
+│   ├── App.tsx              # Root React component
+│   ├── index.css            # Base stylesheet containing global CSS variables
+│   └── main.tsx             # Application entrypoint
+├── LICENSE                  # MIT Code license
+├── ATTRIBUTIONS.md          # CC BY-NC-SA 4.0 asset details & third-party disclaimers
+├── README.md                # Project documentation (this file)
+├── index.html               # Main HTML document template
+├── package.json             # NPM package scripts and dependencies
+└── vite.config.ts           # Vite compilation and deployment configuration
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+*   **Node.js**: `^18.0.0` or `^20.0.0` (LTS recommended)
+*   **NPM**: `^9.0.0` or higher
+
+### Clone & Local Setup
+
+1.  Clone the repository:
+
+    ```bash
+    git clone https://github.com/Pollywrath/Industrialist-Production-Calculator.git
+    cd Industrialist-Production-Calculator
+    ```
+
+2.  Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3.  Start the local development server:
+
+    ```bash
+    npm run dev
+    ```
+
+### Production Build & Linting
+
+Build the production bundle:
+
+```bash
+npm run build
+```
+
+Run linter checks:
+
+```bash
+npm run lint
+```
+
+Format code automatically with Prettier:
+
+```bash
+npm run format
+```
+
+Check code formatting status:
+
+```bash
+npm run format:check
+```
+
+---
+
+## Licensing & Attribution
+
+*   **Codebase:** The application source code is licensed under the [MIT License](./LICENSE).
+*   **Assets & Disclaimers:** All third-party game assets, sprites, icons, trademarks, and third-party WebAssembly solver licenses/disclaimers are detailed in [ATTRIBUTIONS.md](./ATTRIBUTIONS.md).

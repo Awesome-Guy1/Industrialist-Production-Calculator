@@ -3,1621 +3,2754 @@
     "id": "m_advanced_assembler",
     "name": "Advanced Assembler",
     "cost": 150000,
-    "size": "12x6",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Factories",
-    "subcategory": "Assemblers",
+    "size": {
+      "x": 12,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_assembler",
+    "category": "Factory",
+    "subcategory": "Assembler"
   },
   {
     "id": "m_advanced_coal_drill",
     "name": "Advanced Coal Drill",
     "cost": 1000,
-    "size": "10x4",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 60000,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 10,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_coal_extraction",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_advanced_copper_drill",
     "name": "Advanced Copper Drill",
     "cost": 520,
-    "size": "8x4",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 60000,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 8,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_copper_extraction",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_advanced_oil_separator",
     "name": "Advanced Oil Separator",
     "cost": 1250000,
-    "size": "22x22",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 25000000,
-    "category": "Factories",
-    "subcategory": "Separators",
+    "size": {
+      "x": 22,
+      "y": 22
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_oil_refining",
+    "category": "Factory",
+    "subcategory": "Separator"
   },
   {
     "id": "m_advanced_oxidation_plant",
     "name": "Advanced Oxidation Plant",
     "cost": 2000000,
-    "size": "28x24",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 50000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 28,
+      "y": 24
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_oxidation_plant",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_air_separation_unit",
     "name": "Air Separation Unit",
     "cost": 1500000,
-    "size": "29x24",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 125000000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor",
+    "size": {
+      "x": 29,
+      "y": 24
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_air_separation_unit",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_alloyer",
     "name": "Alloyer",
     "cost": 999999,
-    "size": "10x6",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 7000000,
-    "category": "Factories",
-    "subcategory": "Furnaces",
+    "size": {
+      "x": 10,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_alloyer",
+    "category": "Factory",
+    "subcategory": "Furnace"
   },
   {
     "id": "m_atmospheric_distillation_plant",
     "name": "Atmospheric Distillation Plant",
     "cost": 1000000,
-    "size": "16x16",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 16,
+      "y": 16
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_oil_fracking",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_battery_charger",
     "name": "Battery Charger",
     "cost": 100000,
-    "size": "4x2",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 4,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_charger",
+    "category": "Factory",
+    "subcategory": "Misc"
   },
   {
     "id": "m_blast_furnace",
     "name": "Blast Furnace",
     "cost": 60000,
-    "size": "8x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Factories",
-    "subcategory": "Furnaces",
+    "size": {
+      "x": 8,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_steel",
+    "category": "Factory",
+    "subcategory": "Furnace"
   },
   {
     "id": "m_blast_furnace_mk2",
     "name": "Blast Furnace MK2",
     "cost": 5000000,
-    "size": "16x16",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 25000000,
-    "category": "Factories",
-    "subcategory": "Furnaces",
+    "size": {
+      "x": 16,
+      "y": 16
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_blast_furnace_mk2",
+    "category": "Factory",
+    "subcategory": "Furnace"
   },
   {
     "id": "m_boiler",
     "name": "Boiler",
     "cost": 900,
-    "size": "8x6",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Power",
-    "subcategory": "Misc",
+    "size": {
+      "x": 8,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_boiler",
+    "category": "Power",
+    "subcategory": "Misc"
   },
   {
     "id": "m_bottling_plant",
     "name": "Bottling Plant",
     "cost": 100000,
-    "size": "8x6",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 8,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_water_bottling",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_chemical_plant",
     "name": "Chemical Plant",
     "cost": 2340000,
-    "size": "23x24",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 50000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 23,
+      "y": 24
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_chemical_plant",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_chemical_reactor",
     "name": "Chemical Reactor",
     "cost": 750000,
-    "size": "10x10",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 10,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_chemical_reactor",
+    "category": "Factory",
+    "subcategory": "Misc"
   },
   {
     "id": "m_coal_drill",
     "name": "Coal Drill",
     "cost": 50,
-    "size": "6x2",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 900,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 6,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_coal_extracting",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_coal_generator",
     "name": "Coal Generator",
     "cost": 160,
-    "size": "4x4",
     "tier": 1,
-    "transfer_rate": 9000,
-    "capacity": 7000,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_generator",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_coal_liquefaction_plant",
     "name": "Coal Liquefaction Plant",
     "cost": 750000,
-    "size": "20x20",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 25000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 20,
+      "y": 20
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_oil_refining",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_coal_power_plant",
     "name": "Coal Power Plant",
     "cost": 10001984,
-    "size": "100x42",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 100000000,
-    "category": "Power",
-    "subcategory": "Large Power Plants",
+    "size": {
+      "x": 100,
+      "y": 42
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_power_plant",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
   },
   {
     "id": "m_compact_coal_power_plant",
     "name": "Compact Coal Power Plant",
     "cost": 550,
-    "size": "8x6",
     "tier": 1,
-    "transfer_rate": 24000,
-    "capacity": 50000,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 8,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_compact_coal_generator",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_concrete_plant",
     "name": "Concrete Plant",
     "cost": 2000,
-    "size": "16x10",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 50000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 16,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_brick_production",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_condenser",
     "name": "Condenser",
     "cost": 75000,
-    "size": "14x6",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 14,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_gas_refining",
+    "category": "Factory",
+    "subcategory": "Misc"
+  },
+  {
+    "id": "m_cooling_tower",
+    "name": "Cooling Tower",
+    "cost": 2500000,
+    "tier": 4,
+    "size": {
+      "x": 50,
+      "y": 50
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_coal_power_plant",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
   },
   {
     "id": "m_copper_drill",
     "name": "Copper Drill",
     "cost": 190,
-    "size": "6x2",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 1500,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 6,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_copper_extracting",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_craft_assembler",
     "name": "Craft Assembler",
     "cost": 1000,
-    "size": "8x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 250000,
-    "category": "Factories",
-    "subcategory": "Assemblers",
+    "size": {
+      "x": 8,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_craft_assembler",
+    "category": "Factory",
+    "subcategory": "Assembler"
   },
   {
     "id": "m_crude_oil_separator",
     "name": "Crude Oil Separator",
     "cost": 1500,
-    "size": "10x8",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 50000,
-    "category": "Factories",
-    "subcategory": "Separators",
+    "size": {
+      "x": 10,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_oil_refining",
+    "category": "Factory",
+    "subcategory": "Separator"
+  },
+  {
+    "id": "m_diesel_engine_air_input",
+    "name": "Diesel Engine Air Input",
+    "cost": 4500,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_controller",
+    "name": "Diesel Engine Controller",
+    "cost": 9000,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_crankshaft",
+    "name": "Diesel Engine Crankshaft",
+    "cost": 4000,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_crankshaft_sideways",
+    "name": "Diesel Engine Crankshaft Sideways",
+    "cost": 600,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_cylinder",
+    "name": "Diesel Engine Cylinder",
+    "cost": 4000,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_decoration",
+    "name": "Diesel Engine Decoration",
+    "cost": 400,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_exhaust",
+    "name": "Diesel Engine Exhaust",
+    "cost": 4500,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_flywheel",
+    "name": "Diesel Engine Flywheel",
+    "cost": 8000,
+    "tier": 2,
+    "size": {
+      "x": 6,
+      "y": 4
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_fuel_input",
+    "name": "Diesel Engine Fuel Input",
+    "cost": 4500,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_generator",
+    "name": "Diesel Engine Generator",
+    "cost": 6000,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_info_panel",
+    "name": "Diesel Engine Info Panel",
+    "cost": 6000,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_diesel_engines",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine"
+  },
+  {
+    "id": "m_diesel_engine_info_panel_debug",
+    "name": "Diesel Engine Info Panel DEBUG",
+    "cost": 6000,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "",
+    "category": "Modular",
+    "subcategory": "Modular Diesel Engine",
+    "sandboxPlusOnly": true
   },
   {
     "id": "m_diesel_generator",
     "name": "Diesel Generator",
     "cost": 4500,
-    "size": "8x4",
     "tier": 2,
-    "transfer_rate": 150000,
-    "capacity": 250000,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 8,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_diesel_generator",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_diesel_refinery",
     "name": "Diesel Refinery",
     "cost": 1000,
-    "size": "12x10",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 50000,
-    "category": "Factories",
-    "subcategory": "Refineries",
+    "size": {
+      "x": 12,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_diesel_refining",
+    "category": "Factory",
+    "subcategory": "Refinery"
   },
   {
     "id": "m_electric_furnace",
     "name": "Electric Furnace",
     "cost": 190,
-    "size": "6x6",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 15000,
-    "category": "Factories",
-    "subcategory": "Furnaces",
+    "size": {
+      "x": 6,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_electric_furnace_and_molding",
+    "category": "Factory",
+    "subcategory": "Furnace"
   },
   {
     "id": "m_electric_water_heater",
     "name": "Electric Water Heater",
     "cost": 100020,
-    "size": "8x5",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 5,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 8,
+      "y": 5
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_electric_water_heater",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_electrolysis_plant",
     "name": "Electrolysis Plant",
     "cost": 650000,
-    "size": "10x6",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 50000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 10,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_electrolysis_plant",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_exhaust_stack",
     "name": "Exhaust Stack",
     "cost": 220000,
-    "size": "24x24",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": null,
-    "category": "Power",
-    "subcategory": "Large Power Plants",
+    "size": {
+      "x": 24,
+      "y": 24
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_power_plant",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
   },
   {
     "id": "m_farm_harvester",
     "name": "Farm Harvester",
     "cost": 650,
-    "size": "8x8",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Modular",
-    "subcategory": "Tree Farm",
+    "size": {
+      "x": 8,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_modular_tree_farm",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
   },
   {
     "id": "m_filtration_plant",
     "name": "Filtration Plant",
     "cost": 20000,
-    "size": "8x8",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 250000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 8,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_water_filtering",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_firebox",
     "name": "Firebox",
     "cost": 550,
-    "size": "6x4",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 6,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_firebox",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_foundry",
     "name": "Foundry",
     "cost": 2000000,
-    "size": "27x21",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 50000000,
-    "category": "Factories",
-    "subcategory": "Molders",
+    "size": {
+      "x": 27,
+      "y": 21
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_foundry",
+    "category": "Factory",
+    "subcategory": "Molder"
   },
   {
     "id": "m_gas_burner",
     "name": "Gas Burner",
     "cost": 100000,
-    "size": "10x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 10,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_gas_burner",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_gas_centrifuge",
     "name": "Gas Centrifuge",
     "cost": 3000000,
-    "size": "14x16",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 1500000,
-    "category": "Factories",
-    "subcategory": "Separators",
+    "size": {
+      "x": 14,
+      "y": 16
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_centrifuge",
+    "category": "Factory",
+    "subcategory": "Separator"
   },
   {
     "id": "m_gas_refinery",
     "name": "Gas Refinery",
     "cost": 175000,
-    "size": "7x6",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Factories",
-    "subcategory": "Refineries",
+    "size": {
+      "x": 7,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_gas_refining",
+    "category": "Factory",
+    "subcategory": "Refinery"
   },
   {
     "id": "m_gasoline_generator",
     "name": "Gasoline Generator",
     "cost": 900,
-    "size": "2x2",
     "tier": 2,
-    "transfer_rate": 150000,
-    "capacity": 700000,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 2,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_gasoline_generator",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_geothermal_well",
     "name": "Geothermal Well",
     "cost": 1500,
-    "size": "8x5",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 50000,
-    "category": "Power",
-    "subcategory": "Renewable",
+    "size": {
+      "x": 8,
+      "y": 5
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_geothermal_plant",
+    "category": "Power",
+    "subcategory": "Renewable"
   },
   {
     "id": "m_gold_acid_refinery",
     "name": "Gold Acid Refinery",
     "cost": 1000000,
-    "size": "18x10",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 510000,
-    "category": "Factories",
-    "subcategory": "Refineries",
+    "size": {
+      "x": 18,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_gold_acid_refinery",
+    "category": "Factory",
+    "subcategory": "Refinery"
   },
   {
     "id": "m_grinder",
     "name": "Grinder",
     "cost": 10000,
-    "size": "6x4",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 500000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 6,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_grinder",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_grinder_mk2",
     "name": "Grinder MK2",
     "cost": 125000,
-    "size": "20x15",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 20000000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 20,
+      "y": 15
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_grinder_mk2",
+    "category": "Factory",
+    "subcategory": "Processor"
+  },
+  {
+    "id": "m_hand_crank",
+    "name": "Hand Crank",
+    "cost": 100,
+    "tier": 1,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_hand_crank",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_hand_crank_mk2",
+    "name": "Hand Crank MK2",
+    "cost": 200000,
+    "tier": 1,
+    "size": {
+      "x": 8,
+      "y": 8
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_hand_pump",
+    "name": "Hand Pump",
+    "cost": 250,
+    "tier": 1,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_hand_crank",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_heat_exchanger",
     "name": "Heat Exchanger",
     "cost": 2718281,
-    "size": "26x10",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Power",
-    "subcategory": "Large Power Plants",
+    "size": {
+      "x": 26,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_power_plant",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
+  },
+  {
+    "id": "m_high_pressure_turbine",
+    "name": "High Pressure Turbine",
+    "cost": 1000000,
+    "tier": 4,
+    "size": {
+      "x": 12,
+      "y": 12
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_turbines",
+    "category": "Modular",
+    "subcategory": "Modular Turbine"
   },
   {
     "id": "m_huge_truck_depot",
     "name": "Huge Truck Depot",
     "cost": 3200,
-    "size": "26x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Miscellaneous",
-    "subcategory": "Depots",
+    "size": {
+      "x": 26,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_huge_truck_depot",
+    "category": "Miscellaneous",
+    "subcategory": "Depot"
+  },
+  {
+    "id": "m_hv_transformer",
+    "name": "HV Transformer",
+    "cost": 750000,
+    "tier": 4,
+    "size": {
+      "x": 8,
+      "y": 8
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_hv_pole",
+    "category": "Power",
+    "subcategory": "Misc"
   },
   {
     "id": "m_industrial_diesel_refinery",
     "name": "Industrial Diesel Refinery",
     "cost": 150000,
-    "size": "8x5",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1500000,
-    "category": "Factories",
-    "subcategory": "Refineries",
+    "size": {
+      "x": 8,
+      "y": 5
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_industrial_diesel_refining",
+    "category": "Factory",
+    "subcategory": "Refinery"
   },
   {
     "id": "m_industrial_drill",
     "name": "Industrial Drill",
     "cost": 100000,
-    "size": "10x10",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 10,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "ore_nodes"
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_industrial_electric_furnace",
     "name": "Industrial Electric Furnace",
     "cost": 1000000,
-    "size": "12x12",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1100000,
-    "category": "Factories",
-    "subcategory": "Furnaces",
+    "size": {
+      "x": 12,
+      "y": 12
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_industrial_electric_furnace",
+    "category": "Factory",
+    "subcategory": "Furnace"
   },
   {
     "id": "m_industrial_firebox",
     "name": "Industrial Firebox",
     "cost": 250000,
-    "size": "9x4",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 9,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_industrial_firebox",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_industrial_kiln",
     "name": "Industrial Kiln",
     "cost": 7500,
-    "size": "20x10",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 325000,
-    "category": "Factories",
-    "subcategory": "Furnaces",
+    "size": {
+      "x": 20,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_concrete_production",
+    "category": "Factory",
+    "subcategory": "Furnace"
   },
   {
     "id": "m_industrial_oil_separator",
     "name": "Industrial Oil Separator",
     "cost": 150000,
-    "size": "8x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 2500000,
-    "category": "Factories",
-    "subcategory": "Separators",
+    "size": {
+      "x": 8,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_advanced_oil_refining",
+    "category": "Factory",
+    "subcategory": "Separator"
   },
   {
     "id": "m_industrial_plastic_molder",
     "name": "Industrial Plastic Molder",
     "cost": 200000,
-    "size": "12x5",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 250000,
-    "category": "Factories",
-    "subcategory": "Molders",
+    "size": {
+      "x": 12,
+      "y": 5
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_industrial_plastic_molding",
+    "category": "Factory",
+    "subcategory": "Molder"
   },
   {
     "id": "m_industrial_roller",
     "name": "Industrial Roller",
     "cost": 150000,
-    "size": "4x2",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 250000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 4,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_industrial_roller",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_industrial_sawmill",
     "name": "Industrial Sawmill",
     "cost": 75000,
-    "size": "14x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 14,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_industrial_sawmill",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_ingot_molder",
     "name": "Ingot Molder",
     "cost": 150,
-    "size": "4x2",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 650,
-    "category": "Factories",
-    "subcategory": "Molders",
+    "size": {
+      "x": 4,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_electric_furnace_and_molding",
+    "category": "Factory",
+    "subcategory": "Molder"
+  },
+  {
+    "id": "m_intermediate_pressure_turbine",
+    "name": "Intermediate Pressure Turbine",
+    "cost": 500000,
+    "tier": 4,
+    "size": {
+      "x": 14,
+      "y": 12
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_turbines",
+    "category": "Modular",
+    "subcategory": "Modular Turbine"
   },
   {
     "id": "m_iron_drill",
     "name": "Iron Drill",
     "cost": 350,
-    "size": "6x2",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 50000,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 6,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_iron_extracting",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_kiln",
     "name": "Kiln",
     "cost": 3200,
-    "size": "14x8",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 700000,
-    "category": "Factories",
-    "subcategory": "Furnaces",
+    "size": {
+      "x": 14,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_brick_production",
+    "category": "Factory",
+    "subcategory": "Furnace"
   },
   {
     "id": "m_large_diesel_engine",
     "name": "Large Diesel Engine",
     "cost": 100000,
-    "size": "14x8",
     "tier": 3,
-    "transfer_rate": 24000000,
-    "capacity": 75000000,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 14,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_large_diesel_engine",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_large_liquid_truck_depot",
     "name": "Large Liquid Truck Depot",
     "cost": 50000,
-    "size": "22x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Miscellaneous",
-    "subcategory": "Depots",
+    "size": {
+      "x": 22,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_large_liquid_truck_depot",
+    "category": "Miscellaneous",
+    "subcategory": "Depot"
   },
   {
     "id": "m_large_pumpjack",
     "name": "Large Pumpjack",
     "cost": 120000,
-    "size": "20x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor",
+    "size": {
+      "x": 20,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_large_oil_rig",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_large_turbine",
     "name": "Large Turbine",
     "cost": 4000,
-    "size": "5x4",
     "tier": 2,
-    "transfer_rate": 1800000,
-    "capacity": 1000000,
-    "category": "Power",
-    "subcategory": "Non-Renewable",
+    "size": {
+      "x": 5,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_large_turbines",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_lathe",
     "name": "Lathe",
     "cost": 5000000,
-    "size": "17x8",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 130000000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 17,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_mineshaft_drill",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_liquid_boiler",
     "name": "Liquid Boiler",
     "cost": 900,
-    "size": "6x4",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 30000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 6,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_oil_refining",
+    "category": "Factory",
+    "subcategory": "Misc"
   },
   {
     "id": "m_liquid_burner",
     "name": "Liquid Burner",
     "cost": 1000,
-    "size": "2x2",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Miscellaneous",
-    "subcategory": "Others",
+    "size": {
+      "x": 2,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_liquid_burner_dump",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
   },
   {
     "id": "m_liquid_dump",
     "name": "Liquid Dump",
     "cost": 500,
-    "size": "2x2",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Miscellaneous",
-    "subcategory": "Others",
+    "size": {
+      "x": 2,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_pollution",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
   },
   {
     "id": "m_liquid_truck_depot",
     "name": "Liquid Truck Depot",
     "cost": 500,
-    "size": "16x8",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Miscellaneous",
-    "subcategory": "Depots",
+    "size": {
+      "x": 16,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_liquid_truck_depot",
+    "category": "Miscellaneous",
+    "subcategory": "Depot"
   },
   {
     "id": "m_lithium_brine_extractor",
     "name": "Lithium Brine Extractor",
     "cost": 100000,
-    "size": "18x18",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 2500000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor",
+    "size": {
+      "x": 18,
+      "y": 18
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_lithium",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_lithium_ore_drill",
     "name": "Lithium Ore Drill",
     "cost": 250000,
-    "size": "10x4",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 10000000,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 10,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_lithium",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_lng_plant",
     "name": "LNG Plant",
     "cost": 1250000,
-    "size": "22x14",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 2500000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 22,
+      "y": 14
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_lng_plant",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_logic_assembler",
     "name": "Logic Assembler",
     "cost": 25000000,
-    "size": "22x12",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 25000000,
-    "category": "Factories",
-    "subcategory": "Assemblers",
+    "size": {
+      "x": 22,
+      "y": 12
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_logic_assembler",
+    "category": "Factory",
+    "subcategory": "Assembler"
+  },
+  {
+    "id": "m_low_pressure_turbine",
+    "name": "Low Pressure Turbine",
+    "cost": 1000000,
+    "tier": 4,
+    "size": {
+      "x": 14,
+      "y": 12
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_turbines",
+    "category": "Modular",
+    "subcategory": "Modular Turbine"
   },
   {
     "id": "m_mineshaft_drill",
     "name": "Mineshaft Drill",
     "cost": 1100000,
-    "size": "14x14",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 50000000,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 14,
+      "y": 14
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_mineshaft_drill",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_natural_gas_well",
     "name": "Natural Gas Well",
     "cost": 60000,
-    "size": "12x12",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 3000000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor",
+    "size": {
+      "x": 12,
+      "y": 12
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_natural_gas_well",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_nuclear_power_plant",
     "name": "Nuclear Power Plant",
     "cost": 200000000,
-    "size": "131x60",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 100,
-    "category": "Power",
-    "subcategory": "Large Power Plants",
+    "size": {
+      "x": 131,
+      "y": 60
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_nuclear_power_plant",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
   },
   {
     "id": "m_oil_fracking_tower",
     "name": "Oil Fracking Tower",
     "cost": 500000,
-    "size": "12x12",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor&#039;",
+    "size": {
+      "x": 12,
+      "y": 12
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_oil_fracking",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_oil_rig",
     "name": "Oil Rig",
     "cost": 1200,
-    "size": "8x2",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 4000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor",
+    "size": {
+      "x": 8,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_oil_extraction",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_ore_enrichment_facility",
     "name": "Ore Enrichment Facility",
     "cost": 4000000,
-    "size": "32x36",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 50000000,
-    "category": "Factories",
-    "subcategory": "Separators",
+    "size": {
+      "x": 32,
+      "y": 36
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_ore_enrichment_facility",
+    "category": "Factory",
+    "subcategory": "Separator"
   },
   {
     "id": "m_oxidation_plant",
     "name": "Oxidation Plant",
     "cost": 200000,
-    "size": "8x6",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 25000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 8,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_plastics",
+    "category": "Factory",
+    "subcategory": "Plant"
   },
   {
     "id": "m_paper_mill",
     "name": "Paper Mill",
     "cost": 80000,
-    "size": "12x6",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 12,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_paper_mill",
+    "category": "Factory",
+    "subcategory": "Misc"
   },
   {
     "id": "m_plastic_molding_machine",
     "name": "Plastic Molding Machine",
     "cost": 100000,
-    "size": "4x4",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 500000,
-    "category": "Factories",
-    "subcategory": "Molders",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_plastic_molding",
+    "category": "Factory",
+    "subcategory": "Molder"
   },
   {
     "id": "m_plastic_production_facility",
     "name": "Plastic Production Facility",
     "cost": 100000,
-    "size": "15x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 2500000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 15,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_plastics",
+    "category": "Factory",
+    "subcategory": "Misc"
   },
   {
     "id": "m_plastic_refinery",
     "name": "Plastic Refinery",
     "cost": 100000,
-    "size": "14x10",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 2500000,
-    "category": "Factories",
-    "subcategory": "Refineries",
+    "size": {
+      "x": 14,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_plastics",
+    "category": "Factory",
+    "subcategory": "Refinery"
   },
   {
     "id": "m_polisher",
     "name": "Polisher",
     "cost": 1200000,
-    "size": "28x12",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Power",
-    "subcategory": "Large Power Plants",
+    "size": {
+      "x": 28,
+      "y": 12
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_power_plant",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
   },
   {
     "id": "m_precision_assembler",
     "name": "Precision Assembler",
     "cost": 1000000,
-    "size": "12x6",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Factories",
-    "subcategory": "Assemblers",
+    "size": {
+      "x": 12,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_precision_assembler",
+    "category": "Factory",
+    "subcategory": "Assembler"
   },
   {
     "id": "m_press",
     "name": "Press",
     "cost": 409,
-    "size": "4x2",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 250000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 4,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_press",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_press_mk2",
     "name": "Press MK2",
     "cost": 333333,
-    "size": "15x10",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 15,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_press_mk2",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_pressurized_water_filter",
     "name": "Pressurized Water Filter",
     "cost": 350000,
-    "size": "9x6",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1100000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 9,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_pressurized_water_filter",
+    "category": "Factory",
+    "subcategory": "Misc"
   },
   {
     "id": "m_quarry",
     "name": "Quarry",
     "cost": 1500,
-    "size": "22x24",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Extractors",
-    "subcategory": "Item Extractor",
+    "size": {
+      "x": 22,
+      "y": 24
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_quarry",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
   },
   {
     "id": "m_raw_mill",
     "name": "Raw Mill",
     "cost": 1250,
-    "size": "13x9",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 75000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 13,
+      "y": 9
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_concrete_production",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_research_station1",
     "name": "Research Station1",
     "cost": 75,
-    "size": "8x8",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 3000,
-    "category": "Miscellaneous",
-    "subcategory": "Research",
+    "size": {
+      "x": 8,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_research_station_1",
+    "category": "Miscellaneous",
+    "subcategory": "Research"
   },
   {
     "id": "m_research_station2",
     "name": "Research Station2",
     "cost": 5000,
-    "size": "16x10",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 25000,
-    "category": "Miscellaneous",
-    "subcategory": "Research",
+    "size": {
+      "x": 16,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_research_station_2",
+    "category": "Miscellaneous",
+    "subcategory": "Research"
   },
   {
     "id": "m_research_station3",
     "name": "Research Station3",
     "cost": 100000,
-    "size": "24x16",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 700000,
-    "category": "Miscellaneous",
-    "subcategory": "Research",
+    "size": {
+      "x": 24,
+      "y": 16
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_research_station_3",
+    "category": "Miscellaneous",
+    "subcategory": "Research"
   },
   {
     "id": "m_research_station4",
     "name": "Research Station4",
     "cost": 1500000,
-    "size": "24x16",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 5500000,
-    "category": "Miscellaneous",
-    "subcategory": "Research",
+    "size": {
+      "x": 24,
+      "y": 16
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_research_station_4",
+    "category": "Miscellaneous",
+    "subcategory": "Research"
   },
   {
     "id": "m_roller",
     "name": "Roller",
     "cost": 411,
-    "size": "4x2",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 250000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 4,
+      "y": 2
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_roller",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_roller_mk2",
     "name": "Roller MK2",
     "cost": 150000,
-    "size": "15x12",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 2000000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 15,
+      "y": 12
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_roller_mk2",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_satellite_dish",
     "name": "Satellite Dish",
     "cost": 30000,
-    "size": "16x16",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 100000,
-    "category": "Miscellaneous",
-    "subcategory": "Research",
+    "size": {
+      "x": 16,
+      "y": 16
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_satellite_dishes",
+    "category": "Miscellaneous",
+    "subcategory": "Research"
   },
   {
     "id": "m_satellite_dish_controller",
     "name": "Satellite Dish Controller",
     "cost": 250000,
-    "size": "15x10",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 100000,
-    "category": "Miscellaneous",
-    "subcategory": "Research",
+    "size": {
+      "x": 15,
+      "y": 10
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_satellite_dishes",
+    "category": "Miscellaneous",
+    "subcategory": "Research"
   },
   {
     "id": "m_sawmill",
     "name": "Sawmill",
     "cost": 800,
-    "size": "8x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 60000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 8,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_sawmill",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_scrubber",
     "name": "Scrubber",
     "cost": 30000,
-    "size": "8x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 500000,
-    "category": "Miscellaneous",
-    "subcategory": "Others",
+    "size": {
+      "x": 8,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_scrubber",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
+  },
+  {
+    "id": "m_solar_farm1",
+    "name": "Solar Farm1",
+    "cost": 200000,
+    "tier": 3,
+    "size": {
+      "x": 20,
+      "y": 18
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_solar_farm_1",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_solar_panel",
+    "name": "Solar Panel",
+    "cost": 80,
+    "tier": 1,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_solar_panel_1",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_solar_panel2",
+    "name": "Solar Panel2",
+    "cost": 1500,
+    "tier": 2,
+    "size": {
+      "x": 4,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_solar_panel_2",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_solar_panel3",
+    "name": "Solar Panel3",
+    "cost": 5000,
+    "tier": 3,
+    "size": {
+      "x": 4,
+      "y": 4
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_solar_panel_3",
+    "category": "Power",
+    "subcategory": "Renewable"
   },
   {
     "id": "m_steam_condenser",
     "name": "Steam Condenser",
     "cost": 2400000,
-    "size": "26x8",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Power",
-    "subcategory": "Large Power Plants",
+    "size": {
+      "x": 26,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_power_plant",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
   },
   {
     "id": "m_steam_cracking_plant",
     "name": "Steam Cracking Plant",
     "cost": 150000,
-    "size": "8x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 8,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_plastics",
+    "category": "Factory",
+    "subcategory": "Plant"
+  },
+  {
+    "id": "m_steam_turbine",
+    "name": "Steam Turbine",
+    "cost": 40,
+    "tier": 1,
+    "size": {
+      "x": 4,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_turbines",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
   },
   {
     "id": "m_tree",
     "name": "Tree",
     "cost": 80,
-    "size": "4x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Modular",
-    "subcategory": "Tree Farm",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_modular_tree_farm",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
   },
   {
     "id": "m_tree_farm_controller",
     "name": "Tree Farm Controller",
     "cost": 750,
-    "size": "4x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Modular",
-    "subcategory": "Tree Farm",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_modular_tree_farm",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
   },
   {
     "id": "m_tree_farm_output",
     "name": "Tree Farm Output",
     "cost": 200,
-    "size": "4x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": null,
-    "category": "Modular",
-    "subcategory": "Tree Farm",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
-  },
-  {
-    "id": "m_tree_farm",
-    "name": "Tree Farm",
-    "cost": "Variable",
-    "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 0,
+    "research": "s_production_modular_tree_farm",
     "category": "Modular",
-    "subcategory": "Tree Farm",
-    "variant": "none",
-    "limited": false,
-    "gamemode": "any"
+    "subcategory": "Tree Farm"
   },
   {
     "id": "m_tree_farm_sprinkler",
     "name": "Tree Farm Sprinkler",
     "cost": 200,
-    "size": "4x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Modular",
-    "subcategory": "Tree Farm",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_modular_tree_farm",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
   },
   {
     "id": "m_tree_farm_water_tank",
     "name": "Tree Farm Water Tank",
     "cost": 500,
-    "size": "10x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Modular",
-    "subcategory": "Tree Farm",
+    "size": {
+      "x": 10,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_modular_tree_farm",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
   },
   {
     "id": "m_trommel",
     "name": "Trommel",
     "cost": 1000000,
-    "size": "12x6",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 600000,
-    "category": "Factories",
-    "subcategory": "Processors",
+    "size": {
+      "x": 12,
+      "y": 6
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_gold_refining",
+    "category": "Factory",
+    "subcategory": "Processor"
   },
   {
     "id": "m_truck_depot",
     "name": "Truck Depot",
     "cost": 100,
-    "size": "10x8",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Miscellaneous",
-    "subcategory": "Depots",
+    "size": {
+      "x": 10,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_truck_depot",
+    "category": "Miscellaneous",
+    "subcategory": "Depot"
   },
   {
-    "id": "m_modular_turbine",
-    "name": "Modular Turbine",
-    "cost": "Variable",
+    "id": "m_turbine_generator",
+    "name": "Turbine Generator",
+    "cost": 5000000,
     "tier": 4,
-    "capacity": 0,
-    "category": "Modular",
-    "subcategory": "Modular Turbine",
+    "size": {
+      "x": 22,
+      "y": 12
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_modular_turbines",
+    "category": "Modular",
+    "subcategory": "Modular Turbine"
+  },
+  {
+    "id": "m_turbine_input",
+    "name": "Turbine Input",
+    "cost": 150000,
+    "tier": 4,
+    "size": {
+      "x": 12,
+      "y": 6
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_turbines",
+    "category": "Modular",
+    "subcategory": "Modular Turbine"
+  },
+  {
+    "id": "m_turbine_output",
+    "name": "Turbine Output",
+    "cost": 150000,
+    "tier": 4,
+    "size": {
+      "x": 12,
+      "y": 6
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_modular_turbines",
+    "category": "Modular",
+    "subcategory": "Modular Turbine"
   },
   {
     "id": "m_underground_waste_facility",
     "name": "Underground Waste Facility",
     "cost": 2500000,
-    "size": "24x24",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 1000000,
-    "category": "Miscellaneous",
-    "subcategory": "Others",
+    "size": {
+      "x": 24,
+      "y": 24
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_radioactive_waste_storage",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
   },
   {
     "id": "m_van_depot",
     "name": "Van Depot",
     "cost": 160,
-    "size": "10x8",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Miscellaneous",
-    "subcategory": "Depots",
+    "size": {
+      "x": 10,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_utility_van_depot",
+    "category": "Miscellaneous",
+    "subcategory": "Depot"
   },
   {
     "id": "m_vaporizer",
     "name": "Vaporizer",
     "cost": 10000,
-    "size": "6x8",
     "tier": 3,
-    "transfer_rate": 0,
-    "capacity": 100000,
-    "category": "Factories",
-    "subcategory": "Misc",
+    "size": {
+      "x": 6,
+      "y": 8
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_air_separation_unit",
+    "category": "Factory",
+    "subcategory": "Misc"
   },
   {
     "id": "m_vertical_heat_exchanger",
     "name": "Vertical Heat Exchanger",
     "cost": 2718281,
-    "size": "14x14",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 0,
-    "category": "Power",
-    "subcategory": "Large Power Plants",
+    "size": {
+      "x": 14,
+      "y": 14
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_power_plant",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
   },
   {
     "id": "m_water_pump",
     "name": "Water Pump",
     "cost": 60,
-    "size": "4x4",
     "tier": 1,
-    "transfer_rate": 0,
-    "capacity": 15000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_water_pump",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_water_pump2",
     "name": "Water Pump2",
     "cost": 6000,
-    "size": "4x4",
     "tier": 2,
-    "transfer_rate": 0,
-    "capacity": 50000,
-    "category": "Extractors",
-    "subcategory": "Fluid Extractor",
+    "size": {
+      "x": 4,
+      "y": 4
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_production_water_pump_2",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
   },
   {
     "id": "m_water_treatment_plant",
     "name": "Water Treatment Plant",
     "cost": 700001,
-    "size": "30x30",
     "tier": 4,
-    "transfer_rate": 0,
-    "capacity": 5000000,
-    "category": "Factories",
-    "subcategory": "Plants",
+    "size": {
+      "x": 30,
+      "y": 30
+    },
     "variant": "none",
     "limited": false,
-    "gamemode": "any"
+    "research": "s_energy_coal_power_plant",
+    "category": "Factory",
+    "subcategory": "Plant"
+  },
+  {
+    "id": "m_wind_turbine1",
+    "name": "Wind Turbine1",
+    "cost": 400,
+    "tier": 1,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_wind_turbine_1",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_wind_turbine2",
+    "name": "Wind Turbine2",
+    "cost": 1785,
+    "tier": 2,
+    "size": {
+      "x": 4,
+      "y": 4
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_wind_turbine_2",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_wind_turbine3",
+    "name": "Wind Turbine3",
+    "cost": 100000,
+    "tier": 3,
+    "size": {
+      "x": 10,
+      "y": 10
+    },
+    "variant": "none",
+    "limited": false,
+    "research": "s_energy_wind_turbine_3",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_american_oil_rig",
+    "name": "American Oil Rig",
+    "cost": 5000,
+    "tier": 2,
+    "size": {
+      "x": 8,
+      "y": 2
+    },
+    "variant": "m_oil_rig",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
+  },
+  {
+    "id": "m_hot_water_pump",
+    "name": "Hot Water Pump",
+    "cost": "infinity",
+    "tier": 1,
+    "size": {
+      "x": 4,
+      "y": 4
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor",
+    "sandboxPlusOnly": true
+  },
+  {
+    "id": "m_og_oil_rig",
+    "name": "OG Oil Rig",
+    "cost": 1200,
+    "tier": 2,
+    "size": {
+      "x": 8,
+      "y": 2
+    },
+    "variant": "m_oil_rig",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Fluid Extractor"
+  },
+  {
+    "id": "m_sand_excavator",
+    "name": "Sand Excavator",
+    "cost": 10000,
+    "tier": 3,
+    "size": {
+      "x": 9,
+      "y": 8
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Item Extractor",
+    "sandboxOnly": true
+  },
+  {
+    "id": "m_soil_excavator",
+    "name": "Soil Excavator",
+    "cost": 250000,
+    "tier": 3,
+    "size": {
+      "x": 10,
+      "y": 5
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Item Extractor",
+    "sandboxOnly": true
+  },
+  {
+    "id": "m_gold_drill",
+    "name": "Gold Drill",
+    "cost": 25000,
+    "tier": 2,
+    "size": {
+      "x": 8,
+      "y": 3
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
+  },
+  {
+    "id": "m_uranium_drill",
+    "name": "Uranium Drill",
+    "cost": 3500000,
+    "tier": 2,
+    "size": {
+      "x": 6,
+      "y": 2
+    },
+    "variant": "m_iron_drill",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
+  },
+  {
+    "id": "m_fancy_coal_drill",
+    "name": "Fancy Coal Drill",
+    "cost": 50,
+    "tier": 1,
+    "size": {
+      "x": 6,
+      "y": 2
+    },
+    "variant": "m_coal_drill",
+    "limited": true,
+    "research": "",
+    "category": "Extractor",
+    "subcategory": "Item Extractor"
+  },
+  {
+    "id": "m_cat_assembler",
+    "name": "Cat Assembler",
+    "cost": 16180339,
+    "tier": 4,
+    "size": {
+      "x": 5,
+      "y": 5
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Factory",
+    "subcategory": "Assembler"
+  },
+  {
+    "id": "m_advanced_electric_furnace",
+    "name": "Advanced Electric Furnace",
+    "cost": 100000,
+    "tier": 2,
+    "size": {
+      "x": 9,
+      "y": 9
+    },
+    "variant": "m_electric_furnace",
+    "limited": true,
+    "research": "",
+    "category": "Factory",
+    "subcategory": "Furnace"
+  },
+  {
+    "id": "m_industrial_press",
+    "name": "Industrial Press",
+    "cost": 150000,
+    "tier": 3,
+    "size": {
+      "x": 4,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Factory",
+    "subcategory": "Processor",
+    "sandboxPlusOnly": true
+  },
+  {
+    "id": "m_advanced_diesel_refinery",
+    "name": "Advanced Diesel Refinery",
+    "cost": 10000,
+    "tier": 2,
+    "size": {
+      "x": 14,
+      "y": 14
+    },
+    "variant": "m_diesel_refinery",
+    "limited": true,
+    "research": "",
+    "category": "Factory",
+    "subcategory": "Refinery"
+  },
+  {
+    "id": "m_residue_refinery",
+    "name": "Residue Refinery",
+    "cost": 200000,
+    "tier": 4,
+    "size": {
+      "x": 7,
+      "y": 5
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Factory",
+    "subcategory": "Refinery"
+  },
+  {
+    "id": "m_hyper_depot",
+    "name": "Hyper Depot",
+    "cost": 16000,
+    "tier": 1,
+    "size": {
+      "x": 10,
+      "y": 8
+    },
+    "variant": "m_truck_depot",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Depot",
+    "sandboxPlusOnly": true
+  },
+  {
+    "id": "m_sleigh_depot",
+    "name": "Sleigh Depot",
+    "cost": 1000,
+    "tier": 1,
+    "size": {
+      "x": 10,
+      "y": 8
+    },
+    "variant": "m_truck_depot",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Depot"
+  },
+  {
+    "id": "m_big_liquid_burner",
+    "name": "Big Liquid Burner",
+    "cost": 10000,
+    "tier": 2,
+    "size": {
+      "x": 5,
+      "y": 5
+    },
+    "variant": "m_liquid_burner",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
+  },
+  {
+    "id": "m_incinerator",
+    "name": "Incinerator",
+    "cost": 5000,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
+  },
+  {
+    "id": "m_item_dump",
+    "name": "Item Dump",
+    "cost": 500,
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
+  },
+  {
+    "id": "m_tree_scrubber",
+    "name": "Tree Scrubber",
+    "cost": 25000,
+    "tier": 1,
+    "size": {
+      "x": 9,
+      "y": 8
+    },
+    "variant": "m_scrubber",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Other"
+  },
+  {
+    "id": "m_fluid_spawner",
+    "name": "Fluid Spawner",
+    "cost": "infinity",
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Pipes",
+    "sandboxPlusOnly": true
+  },
+  {
+    "id": "m_item_spawner",
+    "name": "Item Spawner",
+    "cost": "infinity",
+    "tier": 2,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Pipes",
+    "sandboxPlusOnly": true
+  },
+  {
+    "id": "m_candy_cane_tree",
+    "name": "Candy Cane Tree",
+    "cost": 75,
+    "tier": 1,
+    "size": {
+      "x": 4,
+      "y": 4
+    },
+    "variant": "m_tree",
+    "limited": true,
+    "research": "",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
+  },
+  {
+    "id": "m_christmas_tree",
+    "name": "Christmas Tree",
+    "cost": 80,
+    "tier": 1,
+    "size": {
+      "x": 4,
+      "y": 4
+    },
+    "variant": "m_tree",
+    "limited": true,
+    "research": "",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
+  },
+  {
+    "id": "m_igloo_farm_controller",
+    "name": "Igloo Farm Controller",
+    "cost": 1500,
+    "tier": 1,
+    "size": {
+      "x": 4,
+      "y": 4
+    },
+    "variant": "m_tree_farm_controller",
+    "limited": true,
+    "research": "",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
+  },
+  {
+    "id": "m_festive_coal_power_plant",
+    "name": "Festive Coal Power Plant",
+    "cost": 10001984,
+    "tier": 4,
+    "size": {
+      "x": 100,
+      "y": 42
+    },
+    "variant": "m_coal_power_plant",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
+  },
+  {
+    "id": "m_festive_cooling_tower",
+    "name": "Festive Cooling Tower",
+    "cost": 2500000,
+    "tier": 4,
+    "size": {
+      "x": 50,
+      "y": 50
+    },
+    "variant": "m_cooling_tower",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Large Power Plant"
+  },
+  {
+    "id": "m_footstep_power_generator",
+    "name": "Footstep Power Generator",
+    "cost": 7202,
+    "tier": 1,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Misc"
+  },
+  {
+    "id": "m_small_turbine",
+    "name": "Small Turbine",
+    "cost": 2500,
+    "tier": 2,
+    "size": {
+      "x": 4,
+      "y": 2
+    },
+    "variant": "m_large_turbine",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Non-Renewable"
+  },
+  {
+    "id": "m_lightning_rod",
+    "name": "Lightning Rod",
+    "cost": 75000,
+    "tier": 3,
+    "size": {
+      "x": 9,
+      "y": 9
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_3_turbine_wind",
+    "name": "3 Turbine Wind",
+    "cost": 250000,
+    "tier": 3,
+    "size": {
+      "x": 8,
+      "y": 8
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_4_panel_solar",
+    "name": "4 Panel Solar",
+    "cost": 500000,
+    "tier": 4,
+    "size": {
+      "x": 4,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_dev_solar_panel",
+    "name": "Dev Solar Panel",
+    "cost": "infinity",
+    "tier": 1,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable",
+    "sandboxPlusOnly": true
+  },
+  {
+    "id": "m_energy_wheel",
+    "name": "Energy Wheel",
+    "cost": 4415,
+    "tier": 1,
+    "size": {
+      "x": 12,
+      "y": 9
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_rtg",
+    "name": "RTG",
+    "cost": 100000,
+    "tier": 4,
+    "size": {
+      "x": 2,
+      "y": 2
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_solar_heater",
+    "name": "Solar Heater",
+    "cost": 1500,
+    "tier": 2,
+    "size": {
+      "x": 7,
+      "y": 7
+    },
+    "variant": "m_geothermal_well",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_wind_turbine4",
+    "name": "Wind Turbine4",
+    "cost": 200000,
+    "tier": 3,
+    "size": {
+      "x": 18,
+      "y": 18
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Power",
+    "subcategory": "Renewable"
+  },
+  {
+    "id": "m_classic_tree",
+    "name": "Classic Tree",
+    "cost": 80,
+    "tier": 1,
+    "size": {
+      "x": 4,
+      "y": 4
+    },
+    "variant": "m_tree",
+    "limited": false,
+    "research": "",
+    "category": "Modular",
+    "subcategory": "Tree Farm"
+  },
+  {
+    "id": "m_fort_tech_heavy_cannon_mk2",
+    "name": "Fort-Tech Heavy Cannon MK2",
+    "cost": 3000009,
+    "tier": 4,
+    "size": {
+      "x": 8,
+      "y": 8
+    },
+    "variant": "none",
+    "limited": true,
+    "research": "",
+    "category": "Miscellaneous",
+    "subcategory": "Decoration"
   }
 ]

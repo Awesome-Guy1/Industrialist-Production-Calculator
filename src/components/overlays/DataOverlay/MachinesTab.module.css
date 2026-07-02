@@ -1,0 +1,5 @@
+.machines-tab-container {
+  display: flex;
+  height: 100%;
+  background: var(--theme-color-canvas-bg);
+}
