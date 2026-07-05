@@ -1,15 +1,15 @@
 import type { ChangeEvent } from 'react';
 import { Box } from 'lucide-react';
-import { getProduct, hasProductOverride } from '../../../data/lookup';
-import { useDataStore, overlayPendingEdit } from '../../../stores/useDataStore';
+import { getProduct, hasProductOverride } from '../../../../data/lookup';
+import { useDataStore, overlayPendingEdit } from '../../../../stores/useDataStore';
 import {
   completeTutorialAction,
   isTutorialActive,
   useTutorialStore,
-} from '../../../stores/useTutorialStore';
-import { GenericDataFormShell } from './GenericDataFormShell';
-import { ValidatedNumberInput } from '../../shared/ValidatedNumberInput';
-import styles from './DataCrud.module.css';
+} from '../../../../stores/useTutorialStore';
+import { GenericDataFormShell } from '../shared/GenericDataFormShell';
+import { ValidatedNumberInput } from '../../../shared/ValidatedNumberInput';
+import styles from '../shared/DataCrud.module.css';
 
 interface ProductFormProps {
   selectedProductId: string | null;

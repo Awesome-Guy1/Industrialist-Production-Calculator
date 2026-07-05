@@ -8,33 +8,36 @@ import {
 } from '@xyflow/react';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { SNAP_GRID } from '../../shared/layoutConstants';
 import { type EdgeControlPoint, type RecipeEdgeData } from '../../../types/edges';
 import { useEdgeThemeStore } from '../../../stores/useEdgeThemeStore';
 import { useFlowStore } from '../../../stores/useFlowStore';
 import { getEffectiveToggleId, useUIStore } from '../../../stores/useUIStore';
 import { parseHandleId } from '../../../utils/idGenerator';
+import {
+  buildOrthogonalPathPoints,
+  buildOrthogonalSegments,
+  deleteOrthogonalTurnPair,
+  findOrthogonalSegmentByIndex,
+  moveOrthogonalSegment,
+  normalizeOrthogonalTurns,
+  type OrthogonalRouteAnchors,
+  type OrthogonalSegment,
+} from '../../../utils/canvas/orthogonalEdgeRouting';
+import {
+  arePointsAtSamePosition,
+  projectPointOntoSegment,
+  toFinitePoints,
+} from '../../../utils/canvas/edgeGeometry';
 import styles from './RecipeEdge.module.css';
 
 const EDGE_INTERACTION_WIDTH = 8;
 const EDGE_CONTROL_POINT_RADIUS = 4;
 const ORTHOGONAL_SEGMENT_HITBOX_WIDTH = 14;
+const ORTHOGONAL_ZERO_SEGMENT_HITBOX_RADIUS = 9;
 const ORTHOGONAL_HANDLE_LENGTH = 18;
 const ORTHOGONAL_HANDLE_THICKNESS = 8;
-const ORTHOGONAL_MIN_SEGMENT_LENGTH = 12;
 
 const POSITION_EPSILON = 0.001;
-
-type OrthogonalLayout = 'three' | 'five';
-
-interface OrthogonalSegment {
-  index: number;
-  start: EdgeControlPoint;
-  end: EdgeControlPoint;
-  orientation: 'horizontal' | 'vertical';
-  midpoint: EdgeControlPoint;
-  editable: boolean;
-}
 
 interface DragListeners {
   onMouseMove: (event: MouseEvent) => void;
@@ -70,23 +73,6 @@ function buildCatmullRomPath(points: EdgeControlPoint[]): string {
   return path;
 }
 
-function isFinitePoint(point: EdgeControlPoint): boolean {
-  return Number.isFinite(point.x) && Number.isFinite(point.y);
-}
-
-function toFinitePoints(points: EdgeControlPoint[] | undefined): EdgeControlPoint[] {
-  if (!points || points.length === 0) return [];
-
-  const next: EdgeControlPoint[] = [];
-  for (let i = 0; i < points.length; i++) {
-    const point = points[i];
-    if (!point || !isFinitePoint(point)) continue;
-    next.push({ x: point.x, y: point.y });
-  }
-
-  return next;
-}
-
 function buildPolylinePath(points: EdgeControlPoint[]): string {
   if (points.length < 2) return '';
 
@@ -98,225 +84,23 @@ function buildPolylinePath(points: EdgeControlPoint[]): string {
   return path;
 }
 
-function snapToGrid(value: number, gridSize: number): number {
-  if (!Number.isFinite(value) || gridSize <= 0) return value;
-  return Math.round(value / gridSize) * gridSize;
-}
+function arePointArraysEqual(a: EdgeControlPoint[], b: EdgeControlPoint[]): boolean {
+  if (a.length !== b.length) return false;
 
-function getOrthogonalLayout(sourceX: number, targetX: number): OrthogonalLayout {
-  return targetX < sourceX - POSITION_EPSILON ? 'five' : 'three';
-}
-
-function clampThreeSegmentX(x: number, sourceX: number, targetX: number): number {
-  const minX = Math.min(sourceX, targetX);
-  const maxX = Math.max(sourceX, targetX);
-  const gap = maxX - minX;
-
-  const margin = Math.min(ORTHOGONAL_MIN_SEGMENT_LENGTH, gap / 2);
-  const lowerBound = minX + margin;
-  const upperBound = maxX - margin;
-
-  if (lowerBound >= upperBound) {
-    return (sourceX + targetX) / 2;
-  }
-
-  return Math.min(upperBound, Math.max(lowerBound, x));
-}
-
-function clampFiveSegmentXA(xA: number, sourceX: number): number {
-  return Math.max(sourceX + ORTHOGONAL_MIN_SEGMENT_LENGTH, xA);
-}
-
-function clampFiveSegmentXB(xB: number, targetX: number): number {
-  return Math.min(targetX - ORTHOGONAL_MIN_SEGMENT_LENGTH, xB);
-}
-
-function buildDefaultOrthogonalTurns(
-  layout: OrthogonalLayout,
-  sourceX: number,
-  sourceY: number,
-  targetX: number,
-  targetY: number,
-): EdgeControlPoint[] {
-  if (layout === 'three') {
-    const midX = clampThreeSegmentX(snapToGrid((sourceX + targetX) / 2, SNAP_GRID[0]), sourceX, targetX);
-    return [
-      { x: midX, y: sourceY },
-      { x: midX, y: targetY },
-    ];
-  }
-
-  const xA = clampFiveSegmentXA(sourceX + ORTHOGONAL_MIN_SEGMENT_LENGTH, sourceX);
-  const xB = clampFiveSegmentXB(targetX - ORTHOGONAL_MIN_SEGMENT_LENGTH, targetX);
-  const midY = snapToGrid((sourceY + targetY) / 2, SNAP_GRID[1]);
-
-  return [
-    { x: xA, y: sourceY },
-    { x: xA, y: midY },
-    { x: xB, y: midY },
-    { x: xB, y: targetY },
-  ];
-}
-
-function normalizeOrthogonalTurns(
-  layout: OrthogonalLayout,
-  rawTurns: EdgeControlPoint[] | undefined,
-  sourceX: number,
-  sourceY: number,
-  targetX: number,
-  targetY: number,
-): EdgeControlPoint[] {
-  const finiteTurns = toFinitePoints(rawTurns);
-
-  if (finiteTurns.length === 0) {
-    return buildDefaultOrthogonalTurns(layout, sourceX, sourceY, targetX, targetY);
-  }
-
-  if (finiteTurns.length !== 2 && finiteTurns.length !== 4) {
-    return buildDefaultOrthogonalTurns(layout, sourceX, sourceY, targetX, targetY);
-  }
-
-  const defaultTurns = buildDefaultOrthogonalTurns(layout, sourceX, sourceY, targetX, targetY);
-
-  if (layout === 'three') {
-    const midX = snapToGrid((finiteTurns[0].x + finiteTurns[1].x) / 2, SNAP_GRID[0]);
-    const clampedMidX = clampThreeSegmentX(midX, sourceX, targetX);
-    return [
-      { x: clampedMidX, y: sourceY },
-      { x: clampedMidX, y: targetY },
-    ];
-  }
-
-  if (finiteTurns.length === 2) {
-    const defaultXA = defaultTurns[0].x;
-    const defaultXB = defaultTurns[2].x;
-    const clampedXA = clampFiveSegmentXA(defaultXA, sourceX);
-    const clampedXB = clampFiveSegmentXB(defaultXB, targetX);
-    const midY = snapToGrid((finiteTurns[0].y + finiteTurns[1].y) / 2, SNAP_GRID[1]);
-    return [
-      { x: clampedXA, y: sourceY },
-      { x: clampedXA, y: midY },
-      { x: clampedXB, y: midY },
-      { x: clampedXB, y: targetY },
-    ];
-  }
-
-  const xA = snapToGrid((finiteTurns[0].x + finiteTurns[1].x) / 2, SNAP_GRID[0]);
-  const xB = snapToGrid((finiteTurns[2].x + finiteTurns[3].x) / 2, SNAP_GRID[0]);
-  const midY = snapToGrid((finiteTurns[1].y + finiteTurns[2].y) / 2, SNAP_GRID[1]);
-
-  const clampedXA = clampFiveSegmentXA(xA, sourceX);
-  const clampedXB = clampFiveSegmentXB(xB, targetX);
-
-  return [
-    { x: clampedXA, y: sourceY },
-    { x: clampedXA, y: midY },
-    { x: clampedXB, y: midY },
-    { x: clampedXB, y: targetY },
-  ];
-}
-
-function buildOrthogonalPathPoints(
-  sourceX: number,
-  sourceY: number,
-  targetX: number,
-  targetY: number,
-  turns: EdgeControlPoint[],
-): EdgeControlPoint[] {
-  return [{ x: sourceX, y: sourceY }, ...turns, { x: targetX, y: targetY }];
-}
-
-function isEditableOrthogonalSegment(layout: OrthogonalLayout, segmentIndex: number): boolean {
-  return layout === 'three'
-    ? segmentIndex === 1
-    : segmentIndex === 1 || segmentIndex === 2 || segmentIndex === 3;
-}
-
-function buildOrthogonalSegments(
-  points: EdgeControlPoint[],
-  layout: OrthogonalLayout,
-  isSimple: boolean,
-): OrthogonalSegment[] {
-  const segments: OrthogonalSegment[] = [];
-
-  for (let i = 0; i < points.length - 1; i++) {
-    const start = points[i];
-    const end = points[i + 1];
-
-    const dx = end.x - start.x;
-    const dy = end.y - start.y;
-    if (Math.abs(dx) < POSITION_EPSILON && Math.abs(dy) < POSITION_EPSILON) {
-      continue;
+  for (let i = 0; i < a.length; i++) {
+    if (
+      Math.abs(a[i].x - b[i].x) >= POSITION_EPSILON ||
+      Math.abs(a[i].y - b[i].y) >= POSITION_EPSILON
+    ) {
+      return false;
     }
-
-    const orientation = Math.abs(dx) >= Math.abs(dy) ? 'horizontal' : 'vertical';
-    segments.push({
-      index: i,
-      start,
-      end,
-      orientation,
-      midpoint: {
-        x: (start.x + end.x) / 2,
-        y: (start.y + end.y) / 2,
-      },
-      editable: isSimple && isEditableOrthogonalSegment(layout, i),
-    });
   }
 
-  return segments;
+  return true;
 }
 
-function clampMovedCoordinate(
-  proposed: number,
-  previousAnchor: number,
-  nextAnchor: number,
-  currentValue: number,
-): number {
-  let next = proposed;
-
-  const prevDirection = currentValue >= previousAnchor ? 1 : -1;
-  if (Math.abs(next - previousAnchor) < ORTHOGONAL_MIN_SEGMENT_LENGTH) {
-    next = previousAnchor + prevDirection * ORTHOGONAL_MIN_SEGMENT_LENGTH;
-  }
-
-  const nextDirection = currentValue >= nextAnchor ? 1 : -1;
-  if (Math.abs(next - nextAnchor) < ORTHOGONAL_MIN_SEGMENT_LENGTH) {
-    next = nextAnchor + nextDirection * ORTHOGONAL_MIN_SEGMENT_LENGTH;
-  }
-
-  return next;
-}
-
-function findOrthogonalSegmentByIndex(
-  segments: OrthogonalSegment[],
-  segmentIndex: number,
-): OrthogonalSegment | null {
-  for (let i = 0; i < segments.length; i++) {
-    if (segments[i].index === segmentIndex) return segments[i];
-  }
-  return null;
-}
-
-function projectPointOntoSegment(
-  point: EdgeControlPoint,
-  segmentStart: EdgeControlPoint,
-  segmentEnd: EdgeControlPoint,
-): EdgeControlPoint {
-  const dx = segmentEnd.x - segmentStart.x;
-  const dy = segmentEnd.y - segmentStart.y;
-  const lengthSquared = dx * dx + dy * dy;
-  if (lengthSquared < POSITION_EPSILON) {
-    return { x: segmentStart.x, y: segmentStart.y };
-  }
-
-  const tUnclamped =
-    ((point.x - segmentStart.x) * dx + (point.y - segmentStart.y) * dy) /
-    lengthSquared;
-  const t = Math.max(0, Math.min(1, tUnclamped));
-  return {
-    x: segmentStart.x + dx * t,
-    y: segmentStart.y + dy * t,
-  };
+function isZeroLengthSegment(segment: OrthogonalSegment): boolean {
+  return arePointsAtSamePosition(segment.start, segment.end);
 }
 
 export function RecipeEdge({
@@ -370,17 +154,16 @@ export function RecipeEdge({
     };
   }, []);
 
-  const controlPoints = previewControlPoints ?? toFinitePoints(data?.controlPoints);
-
-  const orthogonalLayout = getOrthogonalLayout(sourceX, targetX);
-  const orthogonalTurns = normalizeOrthogonalTurns(
-    orthogonalLayout,
-    previewOrthogonalTurns ?? data?.orthogonalTurns,
-    sourceX,
-    sourceY,
-    targetX,
-    targetY,
-  );
+  const isOrthogonalPath = pathStyle === 'orthogonal';
+  const isControlPointPath = pathStyle === 'bezier' || pathStyle === 'straight';
+  const showOrthogonalEditor = isOrthogonalPath && selected;
+  const controlPoints = isControlPointPath
+    ? previewControlPoints ?? toFinitePoints(data?.controlPoints)
+    : [];
+  const orthogonalRoute: OrthogonalRouteAnchors = { sourceX, sourceY, targetX, targetY };
+  const orthogonalTurns = isOrthogonalPath
+    ? normalizeOrthogonalTurns(previewOrthogonalTurns ?? data?.orthogonalTurns, orthogonalRoute)
+    : [];
 
   const setEdgePointArray = (
     edgeId: string,
@@ -391,15 +174,8 @@ export function RecipeEdge({
     const flowStore = useFlowStore.getState();
     const finitePoints = toFinitePoints(nextPoints);
     const normalizedPoints =
-      key === 'orthogonalTurns' && finitePoints.length > 0
-        ? normalizeOrthogonalTurns(
-            orthogonalLayout,
-            finitePoints,
-            sourceX,
-            sourceY,
-            targetX,
-            targetY,
-          )
+      key === 'orthogonalTurns'
+        ? normalizeOrthogonalTurns(finitePoints, orthogonalRoute)
         : finitePoints;
 
     const isProxy = edgeId.startsWith('proxy-');
@@ -505,20 +281,38 @@ export function RecipeEdge({
     window.addEventListener('mouseup', finishDrag);
   };
 
-  const orthogonalPathPoints = buildOrthogonalPathPoints(
-    sourceX,
-    sourceY,
-    targetX,
-    targetY,
-    orthogonalTurns,
-  );
-  const isSimpleLayout = orthogonalTurns.length === 2 || orthogonalTurns.length === 4;
-  const orthogonalSegments = buildOrthogonalSegments(orthogonalPathPoints, orthogonalLayout, isSimpleLayout);
-  const orthogonalPath = buildPolylinePath(orthogonalPathPoints);
+  const handleOrthogonalBendPointClick = (
+    bendPointIndex: number,
+    event: React.MouseEvent<SVGCircleElement>,
+  ) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (getEffectiveToggleId(useUIStore.getState()) !== 'delete_mode') {
+      return;
+    }
+
+    const nextTurns = deleteOrthogonalTurnPair(
+      orthogonalTurns,
+      bendPointIndex,
+      orthogonalRoute,
+    );
+    if (!nextTurns) return;
+
+    setEdgePointArray(id, 'orthogonalTurns', nextTurns, { visualOnly: true });
+  };
+
+  const orthogonalPathPoints = isOrthogonalPath
+    ? buildOrthogonalPathPoints(orthogonalRoute, orthogonalTurns)
+    : [];
+  const orthogonalSegments = showOrthogonalEditor
+    ? buildOrthogonalSegments(orthogonalPathPoints)
+    : [];
+  const orthogonalPath = isOrthogonalPath ? buildPolylinePath(orthogonalPathPoints) : '';
 
   const handleOrthogonalSegmentMouseEnter = (
     segment: OrthogonalSegment,
-    event: React.MouseEvent<SVGLineElement>,
+    event: React.MouseEvent<SVGElement>,
   ) => {
     if (!selected || !segment.editable) return;
 
@@ -572,85 +366,20 @@ export function RecipeEdge({
 
     const updateAtPointer = (clientX: number, clientY: number) => {
       const flowPosition = screenToFlowPosition({ x: clientX, y: clientY });
-      const nextTurns = draggedTurns.slice();
-
-      if (orthogonalLayout === 'three') {
-        const proposedX = snapToGrid(flowPosition.x, SNAP_GRID[0]);
-        const clampedX = clampThreeSegmentX(proposedX, sourceX, targetX);
-
-        if (
-          Math.abs(nextTurns[0].x - clampedX) < POSITION_EPSILON &&
-          Math.abs(nextTurns[1].x - clampedX) < POSITION_EPSILON
-        ) {
-          return;
-        }
-
-        nextTurns[0] = { x: clampedX, y: sourceY };
-        nextTurns[1] = { x: clampedX, y: targetY };
-      } else if (segment.index === 1) {
-        const proposedX = snapToGrid(flowPosition.x, SNAP_GRID[0]);
-        const clampedX = clampFiveSegmentXA(proposedX, sourceX);
-
-        if (
-          Math.abs(nextTurns[0].x - clampedX) < POSITION_EPSILON &&
-          Math.abs(nextTurns[1].x - clampedX) < POSITION_EPSILON
-        ) {
-          return;
-        }
-
-        nextTurns[0] = { x: clampedX, y: sourceY };
-        nextTurns[1] = { x: clampedX, y: nextTurns[1].y };
-      } else if (segment.index === 2) {
-        const proposedY = snapToGrid(flowPosition.y, SNAP_GRID[1]);
-        const clampedY = clampMovedCoordinate(proposedY, sourceY, targetY, nextTurns[1].y);
-
-        if (
-          Math.abs(nextTurns[1].y - clampedY) < POSITION_EPSILON &&
-          Math.abs(nextTurns[2].y - clampedY) < POSITION_EPSILON
-        ) {
-          return;
-        }
-
-        nextTurns[1] = { x: nextTurns[1].x, y: clampedY };
-        nextTurns[2] = { x: nextTurns[2].x, y: clampedY };
-      } else if (segment.index === 3) {
-        const proposedX = snapToGrid(flowPosition.x, SNAP_GRID[0]);
-        const clampedX = clampFiveSegmentXB(proposedX, targetX);
-
-        if (
-          Math.abs(nextTurns[2].x - clampedX) < POSITION_EPSILON &&
-          Math.abs(nextTurns[3].x - clampedX) < POSITION_EPSILON
-        ) {
-          return;
-        }
-
-        nextTurns[2] = { x: clampedX, y: nextTurns[2].y };
-        nextTurns[3] = { x: clampedX, y: targetY };
-      } else {
-        return;
-      }
-
-      const normalizedTurns = normalizeOrthogonalTurns(
-        orthogonalLayout,
-        nextTurns,
-        sourceX,
-        sourceY,
-        targetX,
-        targetY,
+      const normalizedTurns = moveOrthogonalSegment(
+        draggedTurns,
+        segment.index,
+        flowPosition,
+        orthogonalRoute,
       );
+      if (!normalizedTurns || arePointArraysEqual(draggedTurns, normalizedTurns)) return;
 
       draggedTurns = normalizedTurns;
       didMove = true;
       setPreviewOrthogonalTurns(normalizedTurns);
 
-      const nextPathPoints = buildOrthogonalPathPoints(
-        sourceX,
-        sourceY,
-        targetX,
-        targetY,
-        normalizedTurns,
-      );
-      const nextSegments = buildOrthogonalSegments(nextPathPoints, orthogonalLayout, isSimpleLayout);
+      const nextPathPoints = buildOrthogonalPathPoints(orthogonalRoute, normalizedTurns);
+      const nextSegments = buildOrthogonalSegments(nextPathPoints);
       const nextSegment = findOrthogonalSegmentByIndex(nextSegments, segment.index);
       if (nextSegment) {
         const projectedPoint = projectPointOntoSegment(
@@ -688,11 +417,13 @@ export function RecipeEdge({
     window.addEventListener('mouseup', finishDrag);
   };
 
-  const catmullPoints: EdgeControlPoint[] = [
-    { x: sourceX, y: sourceY },
-    ...controlPoints,
-    { x: targetX, y: targetY },
-  ];
+  const catmullPoints: EdgeControlPoint[] = !isControlPointPath
+    ? []
+    : [
+      { x: sourceX, y: sourceY },
+      ...controlPoints,
+      { x: targetX, y: targetY },
+    ];
 
   const catmullPath =
     pathStyle === 'bezier' && controlPoints.length > 0 ? buildCatmullRomPath(catmullPoints) : '';
@@ -700,7 +431,7 @@ export function RecipeEdge({
     pathStyle === 'straight' && controlPoints.length > 0 ? buildPolylinePath(catmullPoints) : '';
 
   const [edgePath] =
-    pathStyle === 'orthogonal'
+    isOrthogonalPath
       ? [orthogonalPath]
       : catmullPath
         ? [catmullPath]
@@ -727,18 +458,13 @@ export function RecipeEdge({
     draggingOrthSegmentIndex !== null ? draggingOrthSegmentIndex : hoveredOrthSegmentIndex;
 
   const activeOrthSegment =
-    pathStyle === 'orthogonal' && activeOrthSegmentIndex !== null
+    isOrthogonalPath && activeOrthSegmentIndex !== null
       ? findOrthogonalSegmentByIndex(orthogonalSegments, activeOrthSegmentIndex)
       : null;
 
   const showOrthogonalHandle =
-    pathStyle === 'orthogonal' &&
-    selected &&
-    activeOrthSegment !== null &&
-    activeOrthSegment.editable;
-  const showOrthogonalEditor = pathStyle === 'orthogonal' && selected;
-  const showControlPointEditor =
-    selected && (pathStyle === 'bezier' || pathStyle === 'straight');
+    showOrthogonalEditor && activeOrthSegment !== null && activeOrthSegment.editable;
+  const showControlPointEditor = selected && isControlPointPath;
   const orthogonalHandleDimensions =
     showOrthogonalHandle && activeOrthSegment
       ? activeOrthSegment.orientation === 'horizontal'
@@ -777,19 +503,31 @@ export function RecipeEdge({
 
       {showOrthogonalEditor && (
         <g className={styles['edge-orth-overlay']} onMouseLeave={handleOrthogonalOverlayLeave}>
-          {orthogonalSegments.map((segment) => (
-            <line
-              key={`${id}-orth-segment-${segment.index}`}
-              x1={segment.start.x}
-              y1={segment.start.y}
-              x2={segment.end.x}
-              y2={segment.end.y}
-              className={styles['edge-orth-segment-hitbox']}
-              strokeWidth={ORTHOGONAL_SEGMENT_HITBOX_WIDTH}
-              onMouseEnter={(event) => handleOrthogonalSegmentMouseEnter(segment, event)}
-              onMouseMove={(event) => handleOrthogonalSegmentMouseEnter(segment, event)}
-            />
-          ))}
+          {orthogonalSegments.map((segment) =>
+            segment.editable && isZeroLengthSegment(segment) ? (
+              <circle
+                key={`${id}-orth-segment-${segment.index}`}
+                cx={segment.midpoint.x}
+                cy={segment.midpoint.y}
+                r={ORTHOGONAL_ZERO_SEGMENT_HITBOX_RADIUS}
+                className={styles['edge-orth-zero-segment-hitbox']}
+                onMouseEnter={(event) => handleOrthogonalSegmentMouseEnter(segment, event)}
+                onMouseMove={(event) => handleOrthogonalSegmentMouseEnter(segment, event)}
+              />
+            ) : segment.editable ? (
+              <line
+                key={`${id}-orth-segment-${segment.index}`}
+                x1={segment.start.x}
+                y1={segment.start.y}
+                x2={segment.end.x}
+                y2={segment.end.y}
+                className={styles['edge-orth-segment-hitbox']}
+                strokeWidth={ORTHOGONAL_SEGMENT_HITBOX_WIDTH}
+                onMouseEnter={(event) => handleOrthogonalSegmentMouseEnter(segment, event)}
+                onMouseMove={(event) => handleOrthogonalSegmentMouseEnter(segment, event)}
+              />
+            ) : null,
+          )}
 
           {showOrthogonalHandle &&
             activeOrthHandlePoint &&
@@ -816,6 +554,22 @@ export function RecipeEdge({
                 }
               />
             )}
+
+          {orthogonalTurns.map((point, index) => (
+            <circle
+              key={`${id}-orth-bend-${index}`}
+              className={styles['edge-orth-bend-point']}
+              data-edge-orth-bend-point="true"
+              cx={point.x}
+              cy={point.y}
+              r={EDGE_CONTROL_POINT_RADIUS}
+              onMouseDown={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+              }}
+              onClick={(event) => handleOrthogonalBendPointClick(index, event)}
+            />
+          ))}
         </g>
       )}
 

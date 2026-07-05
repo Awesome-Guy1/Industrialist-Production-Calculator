@@ -2,7 +2,7 @@ import type { Edge } from '@xyflow/react';
 import type { HandleDataType, Recipe } from '../../../types/data';
 import { isGroupNode, isRecipeNode } from '../../../types/nodes';
 import type { CanvasNode, RecipeNodeType } from '../../../types/nodes';
-import { SNAP_GRID, NODE_WIDTH } from '../../shared/layoutConstants';
+import { SNAP_GRID, NODE_WIDTH } from '../../../constants/layoutConstants';
 import { calculateMachineCountFromRate } from '../../../utils/recipeComputation';
 import { nextNodeId, nextEdgeId, buildHandleId } from '../../../utils/idGenerator';
 import { findBestProductMatchIndex } from './productMatch';

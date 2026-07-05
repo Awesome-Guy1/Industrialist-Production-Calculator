@@ -4,7 +4,7 @@ import { useFlowResultStore } from '../stores/useFlowResultStore';
 import { useDataStore } from '../stores/useDataStore';
 import { useGlobalSettingsStore } from '../stores/useGlobalSettingsStore';
 import { solveFlowPipeline } from '../solver/solverPipeline';
-import { SOLVER_DEBOUNCE_MS } from '../components/shared/layoutConstants';
+import { SOLVER_DEBOUNCE_MS } from '../constants/layoutConstants';
 import { isRecipeNode } from '../types/nodes';
 
 export function useFlowSolver(): void {

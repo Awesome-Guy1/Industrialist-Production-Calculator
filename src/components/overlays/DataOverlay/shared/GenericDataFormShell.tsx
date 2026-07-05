@@ -1,13 +1,13 @@
 import type { ComponentType, ReactNode } from 'react';
 import { Trash2, RotateCcw } from 'lucide-react';
-import { getDataOverrides } from '../../../persistence/idb';
+import { getDataOverrides } from '../../../../persistence/idb';
 import {
   canPerformTutorialAction,
   completeTutorialAction,
   isTutorialActive,
   useTutorialStore,
-} from '../../../stores/useTutorialStore';
-import styles from './DataCrud.module.css';
+} from '../../../../stores/useTutorialStore';
+import styles from '../shared/DataCrud.module.css';
 
 interface GenericDataFormShellProps {
   entityId: string | null;

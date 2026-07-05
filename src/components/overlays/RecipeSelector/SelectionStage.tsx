@@ -2,7 +2,7 @@ import { useEffect, type RefObject } from 'react';
 import { X, Package, Droplet } from 'lucide-react';
 import type { Product, Machine } from '../../../types/data';
 import { SortableSelectorTable, type ColumnConfig } from '../../shared/SortableSelectorTable';
-import { PRODUCT_TABLE_VIEW_HEIGHT, MACHINE_TABLE_VIEW_HEIGHT } from '../../shared/layoutConstants';
+import { PRODUCT_TABLE_VIEW_HEIGHT, MACHINE_TABLE_VIEW_HEIGHT } from '../../../constants/layoutConstants';
 import { getAllMachines, getAllProducts, isMachineUnlocked } from '../../../data/lookup';
 import { sortItems } from '../../../utils/sorting';
 import {

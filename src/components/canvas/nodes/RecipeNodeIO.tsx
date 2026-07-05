@@ -35,7 +35,7 @@ import {
   SIDE_PADDING,
   COLUMN_GAP,
   NODE_WIDTH,
-} from '../../shared/layoutConstants';
+} from '../../../constants/layoutConstants';
 
 interface RecipeNodeIOProps {
   leftHandles: HandleRef[];

@@ -35,7 +35,7 @@ import {
   COLUMN_GAP,
   RECT_HEIGHT,
   RECT_GAP,
-} from '../../shared/layoutConstants';
+} from '../../../constants/layoutConstants';
 
 interface GroupNodeIOProps {
   nodeId: string;

@@ -16,7 +16,7 @@ export const CATEGORIZED_TIPS: TipCategory[] = [
       'Hold Alt to temporarily switch to Delete mode for quick node and edge removal.',
       'Hold Ctrl or Cmd to temporarily enter Multi-select mode, allowing you to select and move multiple nodes at once.',
       'Hold Shift to temporarily activate Target mode for quickly marking nodes for optimization.',
-      'Double-click straight or bezier edges while selected to add editable control points for custom routing paths.',
+      'Double-click selected straight or bezier edges to add control points, or selected orthogonal edges to add bend pairs.',
       'Dragging a node while multiple recipe nodes are selected moves the entire selected batch together.',
       'Large graphs automatically swap detailed nodes to flat colored CAD boxes when zoomed out to bypass expensive DOM rendering.',
       'Group nodes together using Multi-select and clicking Add Group to simplify your canvas and utilize compact proxy handles.',

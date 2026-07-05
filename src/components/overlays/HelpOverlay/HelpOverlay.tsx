@@ -301,7 +301,7 @@ const BASE_HELP_ARTICLES: HelpArticle[] = [
         title: 'Edges',
         items: [
           'Click an edge to select it.',
-          'Double-click selected straight or bezier edges to add editable control points.',
+          'Double-click selected straight or bezier edges to add control points, or selected orthogonal edges to add bend pairs.',
           'Orthogonal edges expose segment handles while selected and while the pointer is near an editable segment.',
         ],
       },
@@ -738,51 +738,52 @@ const BASE_HELP_ARTICLES: HelpArticle[] = [
   },
 ];
 
-interface ChangelogCommit {
+interface ChangelogPatch {
   hash: string;
   version: string;
-  minor: number;
-  minorName?: string;
   patch: number;
   date?: string;
   subject: string;
   items: string[];
 }
 
-const typedChangelogData = changelogData as ChangelogCommit[];
-
-const commitsByMinor = new Map<number, ChangelogCommit[]>();
-for (let i = 0; i < typedChangelogData.length; i++) {
-  const commit = typedChangelogData[i];
-  if (!commitsByMinor.has(commit.minor)) {
-    commitsByMinor.set(commit.minor, []);
-  }
-  commitsByMinor.get(commit.minor)!.push(commit);
+interface ChangelogMinorGroup {
+  minor: number;
+  minorName: string;
+  patches: ChangelogPatch[];
 }
 
-const CHANGELOG_ARTICLES: HelpArticle[] = [];
-const sortedMinors = Array.from(commitsByMinor.keys()).sort((a, b) => b - a);
+const typedChangelogData = changelogData as ChangelogMinorGroup[];
 
-for (let i = 0; i < sortedMinors.length; i++) {
-  const minor = sortedMinors[i];
-  const commits = commitsByMinor.get(minor)!;
-  commits.sort((a, b) => a.patch - b.patch);
+const sortedGroups = typedChangelogData.slice().sort((a, b) => b.minor - a.minor);
 
-  const minorName = commits[0]?.minorName || `Version 0.${minor}.x Updates`;
+const CHANGELOG_ARTICLES: HelpArticle[] = sortedGroups.map((group) => {
+  const sortedPatches = group.patches.slice().sort((a, b) => a.patch - b.patch);
+  const minorName = group.minorName || `Version 0.${group.minor}.x Updates`;
 
-  CHANGELOG_ARTICLES.push({
-    id: `changelog-v0${minor}`,
+  return {
+    id: `changelog-v0${group.minor}`,
     tabId: 'changelog',
-    title: `v0.${minor}.x: ${minorName}`,
-    summary: `Version 0.${minor}.x updates including ${minorName.toLowerCase()} and other changes.`,
+    title: `v0.${group.minor}.x: ${minorName}`,
+    summary: '',
     Icon: History,
-    keywords: ['changelog', 'version', 'updates', 'history', 'release', 'notes', 'commit', `v0.${minor}.x`, ...minorName.toLowerCase().split(' ')],
-    sections: commits.map(c => ({
-      title: c.date ? `${c.version} (${c.date})` : c.version,
-      items: c.items
-    }))
-  });
-}
+    keywords: [
+      'changelog',
+      'version',
+      'updates',
+      'history',
+      'release',
+      'notes',
+      'commit',
+      `v0.${group.minor}.x`,
+      ...minorName.toLowerCase().split(' '),
+    ],
+    sections: sortedPatches.map((p) => ({
+      title: p.date ? `${p.version} (${p.date})` : p.version,
+      items: p.items,
+    })),
+  };
+});
 
 const HELP_ARTICLES: HelpArticle[] = [
   ...BASE_HELP_ARTICLES,

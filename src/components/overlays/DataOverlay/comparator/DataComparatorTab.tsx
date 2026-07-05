@@ -16,7 +16,7 @@ import {
   getCachedWikiBucketRows,
   type CachedWikiBucketRowsResult,
   type IndustrialistBucketName,
-} from '../../../services/wikiBucketApi';
+} from '../../../../services/wikiBucketApi';
 import {
   compareProducts,
   compareMachines,
@@ -27,11 +27,11 @@ import {
   type ComparisonResult,
   type DiffItem,
   type WikiRecipe,
-} from '../../../utils/dataComparator';
-import { getAllProducts, getAllMachines, getAllResearches, getAllRecipes } from '../../../data/lookup';
-import styles from './DataOverlay.module.css';
-import { VirtualList } from '../../shared/VirtualList';
-import type { Machine, Product, Recipe } from '../../../types/data';
+} from '../../../../utils/dataComparator';
+import { getAllProducts, getAllMachines, getAllResearches, getAllRecipes } from '../../../../data/lookup';
+import styles from '../DataOverlay.module.css';
+import { VirtualList } from '../../../shared/VirtualList';
+import type { Machine, Product, Recipe } from '../../../../types/data';
 
 interface ComparatorVirtualRow {
   key: string;

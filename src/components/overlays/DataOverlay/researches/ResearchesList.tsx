@@ -1,4 +1,4 @@
-import { GenericDataList } from './GenericDataList';
+import { GenericDataList } from '../shared/GenericDataList';
 
 interface ResearchesListProps {
   selectedResearchId: string | null;

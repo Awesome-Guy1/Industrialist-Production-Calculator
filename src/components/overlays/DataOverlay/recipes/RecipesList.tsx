@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import { Search, Plus, X, ChevronRight, ChevronDown } from 'lucide-react';
-import { VirtualList } from '../../shared/VirtualList';
+import { VirtualList } from '../../../shared/VirtualList';
 import {
   getAllMachines,
   getAllRecipes,
   isBaselineRecipe,
   hasRecipeOverride,
-} from '../../../data/lookup';
-import { buildVirtualModularMachines } from '../../../utils/modularMachineFactory';
-import type { Machine, Recipe } from '../../../types/data';
-import { useDataStore, overlayPendingEdit } from '../../../stores/useDataStore';
+} from '../../../../data/lookup';
+import { buildVirtualModularMachines } from '../../../../utils/modularMachineFactory';
+import type { Machine, Recipe } from '../../../../types/data';
+import { useDataStore, overlayPendingEdit } from '../../../../stores/useDataStore';
 import {
   canPerformTutorialAction,
   completeTutorialAction,
   isTutorialActive,
   useTutorialStore,
-} from '../../../stores/useTutorialStore';
-import crudStyles from './DataCrud.module.css';
+} from '../../../../stores/useTutorialStore';
+import crudStyles from '../shared/DataCrud.module.css';
 import styles from './RecipesTab.module.css';
 
 interface RecipesListProps {

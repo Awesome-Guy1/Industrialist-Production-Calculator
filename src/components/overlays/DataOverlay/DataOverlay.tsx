@@ -18,11 +18,11 @@ import {
   completeTutorialAction,
   isTutorialActive,
 } from '../../../stores/useTutorialStore';
-import { ProductsTab } from './ProductsTab';
-import { MachinesTab } from './MachinesTab';
-import { RecipesTab } from './RecipesTab';
-import { ResearchesTab } from './ResearchesTab';
-import { DataComparatorTab } from './DataComparatorTab';
+import { ProductsTab } from './products/ProductsTab';
+import { MachinesTab } from './machines/MachinesTab';
+import { RecipesTab } from './recipes/RecipesTab';
+import { ResearchesTab } from './researches/ResearchesTab';
+import { DataComparatorTab } from './comparator/DataComparatorTab';
 import styles from './DataOverlay.module.css';
 
 export function DataOverlay() {

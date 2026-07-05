@@ -8,7 +8,7 @@ import {
   RECT_GAP,
   IO_COLUMN_PADDING,
   BOTTOM_PADDING,
-} from '../components/shared/layoutConstants';
+} from '../constants/layoutConstants';
 
 export const GROUP_PADDING_X = SNAP_GRID[0];
 export const GROUP_PADDING_Y = SNAP_GRID[1];

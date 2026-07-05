@@ -1,5 +1,5 @@
 import { Search, Plus, X } from 'lucide-react';
-import { VirtualList } from '../../shared/VirtualList';
+import { VirtualList } from '../../../shared/VirtualList';
 import {
   getAllProducts,
   getAllMachines,
@@ -10,16 +10,16 @@ import {
   isBaselineProduct,
   isBaselineMachine,
   isBaselineResearch,
-} from '../../../data/lookup';
-import type { Product, Machine, Research } from '../../../types/data';
-import { useDataStore, overlayPendingEdit } from '../../../stores/useDataStore';
+} from '../../../../data/lookup';
+import type { Product, Machine, Research } from '../../../../types/data';
+import { useDataStore, overlayPendingEdit } from '../../../../stores/useDataStore';
 import {
   canPerformTutorialAction,
   completeTutorialAction,
   isTutorialActive,
   useTutorialStore,
-} from '../../../stores/useTutorialStore';
-import styles from './DataCrud.module.css';
+} from '../../../../stores/useTutorialStore';
+import styles from '../shared/DataCrud.module.css';
 
 interface GenericDataListProps {
   type: 'product' | 'machine' | 'research';

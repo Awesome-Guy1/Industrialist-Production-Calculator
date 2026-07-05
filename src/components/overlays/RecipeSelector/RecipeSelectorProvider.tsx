@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createStore } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
-import { SEARCH_DEBOUNCE_MS } from '../../shared/layoutConstants';
+import { SEARCH_DEBOUNCE_MS } from '../../../constants/layoutConstants';
 import { RecipeSelectorContext, type RecipeSelectorState } from './RecipeSelectorContext';
 import {
   createInitialRecipeSelectorTutorialSnapshot,

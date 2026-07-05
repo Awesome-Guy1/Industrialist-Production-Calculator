@@ -4,27 +4,27 @@ import {
   getAllMachines,
   getAllProducts,
   hasRecipeOverride,
-} from '../../../data/lookup';
-import { getSpecialRecipe } from '../../../data/registry';
-import { buildVirtualModularMachines } from '../../../utils/modularMachineFactory';
-import { useDataStore, overlayPendingEdit } from '../../../stores/useDataStore';
+} from '../../../../data/lookup';
+import { getSpecialRecipe } from '../../../../data/registry';
+import { buildVirtualModularMachines } from '../../../../utils/modularMachineFactory';
+import { useDataStore, overlayPendingEdit } from '../../../../stores/useDataStore';
 import {
   canPerformTutorialAction,
   completeTutorialAction,
   isTutorialActive,
   useTutorialStore,
-} from '../../../stores/useTutorialStore';
-import { GenericDataFormShell } from './GenericDataFormShell';
-import { ValidatedNumberInput } from '../../shared/ValidatedNumberInput';
-import { SearchDropdown } from '../../shared/SearchDropdown';
+} from '../../../../stores/useTutorialStore';
+import { GenericDataFormShell } from '../shared/GenericDataFormShell';
+import { ValidatedNumberInput } from '../../../shared/ValidatedNumberInput';
+import { SearchDropdown } from '../../../shared/SearchDropdown';
 import type {
   HandleDataType,
   Machine,
   Product,
   RecipeInput,
   RecipeOutput,
-} from '../../../types/data';
-import crudStyles from './DataCrud.module.css';
+} from '../../../../types/data';
+import crudStyles from '../shared/DataCrud.module.css';
 import styles from './RecipesTab.module.css';
 
 interface RecipeFormProps {

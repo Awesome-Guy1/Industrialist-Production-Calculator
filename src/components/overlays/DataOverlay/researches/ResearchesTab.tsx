@@ -1,4 +1,4 @@
-import { useDataStore } from '../../../stores/useDataStore';
+import { useDataStore } from '../../../../stores/useDataStore';
 import { ResearchesList } from './ResearchesList';
 import { ResearchForm } from './ResearchForm';
 import styles from './ResearchesTab.module.css';

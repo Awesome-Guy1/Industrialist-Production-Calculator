@@ -6,23 +6,23 @@ import {
   getAllMachines,
   getAllResearches,
   hasMachineOverride,
-} from '../../../data/lookup';
-import { useDataStore, overlayPendingEdit } from '../../../stores/useDataStore';
+} from '../../../../data/lookup';
+import { useDataStore, overlayPendingEdit } from '../../../../stores/useDataStore';
 import {
   completeTutorialAction,
   isTutorialActive,
   useTutorialStore,
-} from '../../../stores/useTutorialStore';
-import { SearchDropdown } from '../../shared/SearchDropdown';
+} from '../../../../stores/useTutorialStore';
+import { SearchDropdown } from '../../../shared/SearchDropdown';
 import {
   CANONICAL_CATEGORY_MAP,
   UNIQUE_CATEGORIES,
   UNIQUE_SUBCATEGORIES,
-} from '../../../utils/machineTaxonomy';
-import type { Machine, MachineSize } from '../../../types/data';
-import { GenericDataFormShell } from './GenericDataFormShell';
-import { ValidatedNumberInput } from '../../shared/ValidatedNumberInput';
-import styles from './DataCrud.module.css';
+} from '../../../../utils/machineTaxonomy';
+import type { Machine, MachineSize } from '../../../../types/data';
+import { GenericDataFormShell } from '../shared/GenericDataFormShell';
+import { ValidatedNumberInput } from '../../../shared/ValidatedNumberInput';
+import styles from '../shared/DataCrud.module.css';
 
 interface MachineFormProps {
   selectedMachineId: string | null;

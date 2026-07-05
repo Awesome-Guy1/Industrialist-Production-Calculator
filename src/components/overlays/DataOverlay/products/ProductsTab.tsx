@@ -1,4 +1,4 @@
-import { useDataStore } from '../../../stores/useDataStore';
+import { useDataStore } from '../../../../stores/useDataStore';
 import { ProductsList } from './ProductsList';
 import { ProductForm } from './ProductForm';
 import styles from './ProductsTab.module.css';

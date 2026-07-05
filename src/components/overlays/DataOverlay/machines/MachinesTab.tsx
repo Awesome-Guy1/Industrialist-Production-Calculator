@@ -1,4 +1,4 @@
-import { useDataStore } from '../../../stores/useDataStore';
+import { useDataStore } from '../../../../stores/useDataStore';
 import { MachinesList } from './MachinesList';
 import { MachineForm } from './MachineForm';
 import styles from './MachinesTab.module.css';

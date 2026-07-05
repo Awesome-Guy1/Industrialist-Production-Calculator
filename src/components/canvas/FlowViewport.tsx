@@ -29,7 +29,15 @@ import {
 } from '../../stores/useTutorialStore';
 import { useFlowSolver } from '../../hooks/useFlowSolver';
 import { parseHandleId } from '../../utils/idGenerator';
-import { SNAP_GRID, GRID_DOT_SIZE } from '../shared/layoutConstants';
+import {
+  insertOrthogonalTurnPair,
+  type OrthogonalRouteAnchors,
+} from '../../utils/canvas/orthogonalEdgeRouting';
+import {
+  distanceSquaredPointToSegment,
+  getPointArray,
+} from '../../utils/canvas/edgeGeometry';
+import { SNAP_GRID, GRID_DOT_SIZE } from '../../constants/layoutConstants';
 import { isGroupNode, isRecipeNode } from '../../types/nodes';
 import type { CanvasNode, RecipeNodeType } from '../../types/nodes';
 import {
@@ -125,67 +133,6 @@ function canUseTutorialTextInput(e: KeyboardEvent): boolean {
   }
 
   return false;
-}
-
-function isFiniteControlPoint(value: unknown): value is EdgeControlPoint {
-  if (!value || typeof value !== 'object') return false;
-  const point = value as { x?: number; y?: number };
-  return (
-    typeof point.x === 'number' &&
-    Number.isFinite(point.x) &&
-    typeof point.y === 'number' &&
-    Number.isFinite(point.y)
-  );
-}
-
-function toControlPoints(data: unknown): EdgeControlPoint[] {
-  if (!data || typeof data !== 'object') return [];
-  const raw = (data as { controlPoints?: unknown }).controlPoints;
-  if (!Array.isArray(raw)) return [];
-
-  const points: EdgeControlPoint[] = [];
-  for (let i = 0; i < raw.length; i++) {
-    const item = raw[i];
-    if (!isFiniteControlPoint(item)) continue;
-    points.push({ x: item.x, y: item.y });
-  }
-
-  return points;
-}
-
-function distanceSquaredBetweenPoints(a: EdgeControlPoint, b: EdgeControlPoint): number {
-  const dx = a.x - b.x;
-  const dy = a.y - b.y;
-  return dx * dx + dy * dy;
-}
-
-function distanceSquaredPointToSegment(
-  point: EdgeControlPoint,
-  segmentStart: EdgeControlPoint,
-  segmentEnd: EdgeControlPoint,
-): number {
-  const segmentX = segmentEnd.x - segmentStart.x;
-  const segmentY = segmentEnd.y - segmentStart.y;
-  const segmentLengthSquared = segmentX * segmentX + segmentY * segmentY;
-  if (segmentLengthSquared <= 0) {
-    return distanceSquaredBetweenPoints(point, segmentStart);
-  }
-
-  const t =
-    ((point.x - segmentStart.x) * segmentX + (point.y - segmentStart.y) * segmentY) /
-    segmentLengthSquared;
-  if (t <= 0) {
-    return distanceSquaredBetweenPoints(point, segmentStart);
-  }
-  if (t >= 1) {
-    return distanceSquaredBetweenPoints(point, segmentEnd);
-  }
-
-  const projection: EdgeControlPoint = {
-    x: segmentStart.x + segmentX * t,
-    y: segmentStart.y + segmentY * t,
-  };
-  return distanceSquaredBetweenPoints(point, projection);
 }
 
 function evaluateCatmullRomPoint(
@@ -675,6 +622,7 @@ function FlowViewportCanvas({ isZoomedOut }: FlowViewportCanvasProps) {
   const onEdgeDoubleClick = (event: React.MouseEvent, clickedEdge: Edge) => {
     event.stopPropagation();
     if (isTutorialActive()) return;
+    if (!clickedEdge.selected) return;
 
     const flowStore = useFlowStore.getState();
     const nextPoint = screenToFlowPosition({
@@ -682,7 +630,7 @@ function FlowViewportCanvas({ isZoomedOut }: FlowViewportCanvasProps) {
       y: event.clientY,
     });
 
-    const existingPoints = toControlPoints(clickedEdge.data);
+    const existingPoints = getPointArray(clickedEdge.data, 'controlPoints');
     const sourcePoint = resolveHandleCenter(
       getInternalNode(clickedEdge.source),
       'source',
@@ -693,6 +641,42 @@ function FlowViewportCanvas({ isZoomedOut }: FlowViewportCanvasProps) {
       'target',
       clickedEdge.targetHandle,
     );
+
+    const isProxy = clickedEdge.id.startsWith('proxy-');
+    const realId = isProxy ? clickedEdge.id.substring(6) : clickedEdge.id;
+    const proxyId = isProxy ? clickedEdge.id : `proxy-${clickedEdge.id}`;
+
+    if (edgePathStyle === 'orthogonal') {
+      if (!sourcePoint || !targetPoint) return;
+
+      const orthogonalRoute: OrthogonalRouteAnchors = {
+        sourceX: sourcePoint.x,
+        sourceY: sourcePoint.y,
+        targetX: targetPoint.x,
+        targetY: targetPoint.y,
+      };
+      const nextOrthogonalTurns = insertOrthogonalTurnPair(
+        getPointArray(clickedEdge.data, 'orthogonalTurns'),
+        nextPoint,
+        orthogonalRoute,
+      );
+
+      const nextEdges = edges.map((currentEdge) => {
+        if (currentEdge.id !== realId && currentEdge.id !== proxyId) return currentEdge;
+
+        return {
+          ...currentEdge,
+          type: 'recipe',
+          data: {
+            ...(currentEdge.data as Record<string, unknown> | undefined),
+            orthogonalTurns: nextOrthogonalTurns,
+          },
+        };
+      });
+
+      flowStore.setEdges(nextEdges, { visualOnly: true });
+      return;
+    }
 
     let nextControlPoints = [...existingPoints, nextPoint];
 
@@ -706,10 +690,6 @@ function FlowViewportCanvas({ isZoomedOut }: FlowViewportCanvasProps) {
       nextControlPoints = existingPoints.slice();
       nextControlPoints.splice(insertIndex, 0, nextPoint);
     }
-
-    const isProxy = clickedEdge.id.startsWith('proxy-');
-    const realId = isProxy ? clickedEdge.id.substring(6) : clickedEdge.id;
-    const proxyId = isProxy ? clickedEdge.id : `proxy-${clickedEdge.id}`;
 
     const nextEdges = edges.map((currentEdge) => {
       if (currentEdge.id !== realId && currentEdge.id !== proxyId) return currentEdge;

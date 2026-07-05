@@ -1,4 +1,4 @@
-import { useDataStore } from '../../../stores/useDataStore';
+import { useDataStore } from '../../../../stores/useDataStore';
 import { RecipesList } from './RecipesList';
 import { RecipeForm } from './RecipeForm';
 import styles from './RecipesTab.module.css';

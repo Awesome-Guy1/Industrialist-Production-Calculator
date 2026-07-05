@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { FlaskConical, CheckSquare, Plus, Trash2 } from 'lucide-react';
-import { getResearch, getAllResearches, hasResearchOverride } from '../../../data/lookup';
-import { useDataStore, overlayPendingEdit } from '../../../stores/useDataStore';
-import { SearchDropdown } from '../../shared/SearchDropdown';
-import type { Research } from '../../../types/data';
-import { GenericDataFormShell } from './GenericDataFormShell';
-import { ValidatedNumberInput } from '../../shared/ValidatedNumberInput';
-import crudStyles from './DataCrud.module.css';
+import { getResearch, getAllResearches, hasResearchOverride } from '../../../../data/lookup';
+import { useDataStore, overlayPendingEdit } from '../../../../stores/useDataStore';
+import { SearchDropdown } from '../../../shared/SearchDropdown';
+import type { Research } from '../../../../types/data';
+import { GenericDataFormShell } from '../shared/GenericDataFormShell';
+import { ValidatedNumberInput } from '../../../shared/ValidatedNumberInput';
+import crudStyles from '../shared/DataCrud.module.css';
 import styles from './ResearchesTab.module.css';
 
 interface ResearchFormProps {

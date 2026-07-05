@@ -31,7 +31,7 @@ import {
   BOTTOM_PADDING,
   IO_COLUMN_PADDING,
   NODE_CSS_WIDTH,
-} from '../components/shared/layoutConstants';
+} from '../constants/layoutConstants';
 import {
   EMPTY_GROUP_HEIGHT,
   EMPTY_GROUP_WIDTH,

@@ -32,7 +32,7 @@ import {
   BASE_INFO_HEIGHT,
   BOTTOM_PADDING,
   IO_COLUMN_PADDING,
-} from '../../shared/layoutConstants';
+} from '../../../constants/layoutConstants';
 
 import { useDataStore } from '../../../stores/useDataStore';
 import { useFlowResultStore } from '../../../stores/useFlowResultStore';
