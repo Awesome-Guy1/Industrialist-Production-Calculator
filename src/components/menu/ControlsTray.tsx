@@ -225,9 +225,15 @@ export function ControlsTray() {
       const layoutGraphVersion = flowStore.graphVersion;
 
       setIsLayouting(true);
-      void import('../../utils/autoLayout')
-        .then(({ autoLayout }) => {
-          return autoLayout(flowStore.nodes, flowStore.edges, { edgePath: edgePathStyle });
+      void Promise.all([
+        import('../../layout'),
+        import('../../data/lookup'),
+      ])
+        .then(([{ autoLayout }, { resolveActiveRecipe }]) => {
+          return autoLayout(flowStore.nodes, flowStore.edges, {
+            edgePath: edgePathStyle,
+            resolveRecipe: resolveActiveRecipe,
+          });
         })
         .then(({ nodes, edges }) => {
           const didApply = applyAutoLayoutResult(nodes, edges, layoutGraphVersion);

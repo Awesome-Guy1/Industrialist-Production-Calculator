@@ -217,3 +217,15 @@ input[type='number']::-webkit-outer-spin-button {
 .is-delete-mode .react-flow__edge {
   cursor: pointer;
 }
+
+.is-exporting .recipe-node,
+.is-exporting .group-node {
+  contain: none !important;
+  backface-visibility: visible !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+
+.is-exporting .react-flow__edge-path {
+  animation: none !important;
+}

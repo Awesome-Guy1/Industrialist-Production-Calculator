@@ -208,7 +208,7 @@ export function FlowCanvas() {
       const versionSuffix = ASSET_VERSION ? `?v=${ASSET_VERSION}` : '';
       fetch(`/scip/scip.js${versionSuffix}`).catch(() => { });
       fetch(`/scip/scip.wasm${versionSuffix}`).catch(() => { });
-      import('../../utils/autoLayout').catch((err) => {
+      import('../../layout').catch((err) => {
         console.warn('Failed to prefetch auto-layout module on idle:', err);
       });
     };
@@ -281,6 +281,7 @@ export function FlowCanvas() {
     isDeleteMode ? 'is-delete-mode' : '',
     isTransforming ? 'is-transforming' : '',
     isZoomedOut ? 'is-zoomed-out' : '',
+    isExporting ? 'is-exporting' : '',
   ]
     .filter(Boolean)
     .join(' ');

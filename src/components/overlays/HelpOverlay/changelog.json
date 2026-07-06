@@ -112,6 +112,18 @@
           "Overhauled the auto layout utility around ELK-based graph layout, grid-snapped placement, fixed port sizing, deterministic handle ordering, and geometry-aware orthogonal edge routing.",
           "Reorganized codebase by moving edge routing and geometry utilities to a dedicated `src/utils/canvas` directory."
         ]
+      },
+      {
+        "hash": "pending",
+        "version": "v0.7.9",
+        "patch": 9,
+        "date": "2026-07-06",
+        "subject": "fix: finalize auto layout pipeline and harden PNG export",
+        "items": [
+          "Moved Auto Layout into a dedicated `src/layout` subsystem with separated ELK graph construction, materialization, result application, and port-order refinement modules.",
+          "Improved layout consistency with deterministic ELK settings, fixed-size ports, geometry-aware handle order refinement, and per-edge priorities for flow, feedback, and self-loop edges.",
+          "Hardened PNG canvas export for Firefox by inlining theme variables, resolving SVG edge paint styles before capture, and disabling export-time paint optimizations that could hide text or edges."
+        ]
       }
     ]
   },
